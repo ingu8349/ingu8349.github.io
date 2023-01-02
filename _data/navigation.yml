@@ -1,10 +1,10 @@
-- title: About
+- title: javascript & TypeScript
   url: /about/
-- title: Years
+- title: Frameworks
   url: /years/
-- title: Categories
+- title: Next, Meta Framework
   url: /categories/
-- title: Tags
+- title: css templete
   url: /tags/
 - title: More
   sublinks:
