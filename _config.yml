@@ -1,6 +1,6 @@
-title: 개발괴발
+title: 인구의 자기계개발
 author: GitHub User
-email: heidi3115@gmail.com
+email: ingu8349@gmail.com
 description: > # this means to ignore newlines until "show_exerpts:"
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
@@ -17,8 +17,8 @@ plainwhite:
 #      url: "/vue"
 #    - title: Resume
 #      url: "/resume"
-  name: minseon Kim
-  tagline: Developer
+  name: Ingu Kim
+  tagline: 개 발 자
   date_format: "%Y,%b %-d"
   sitemap: true # set to true to generate sitemap.xml content
   search: true # set to true to enable searchbar
@@ -31,12 +31,12 @@ plainwhite:
     - post
   # generate social links in footer
   social_links:
-#    twitter: samarsault
-    github:  heidi3115
-#    linkedIn: in/samarsault
+#    twitter: ingu8349
+    github:  ingu8349
+#    linkedIn: in/ingu8349
     #dribbble: jekyll
     #flickr:   jekyll
-    #instagram: jekyll
+    #instagram: in__9
     #pinterest: jekyll
     #youtube: jekyll
     #facebook: jekyll
