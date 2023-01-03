@@ -13,6 +13,33 @@ categories: Diary Start First
     <div>아는 내용이지만, 써먹지 않으면 모르는거나 다름 없었다.</div>
     <div>클린하게 코드를 쓰는게 중요하다는 걸 다시금 깨우침</div>
 </div>
+
+```javascript
+// 내가 짠 코드 
+const maxDate = reservationLimitType == "DAY" ? addDays(new Date(), reservationLimitType === "UNLIMTED" ? null : reservationLimit) :
+        reservationLimitType == "WEEK" ? addWeeks(new Date(), reservationLimitType === "UNLIMTED" ? null : reservationLimit) :
+            reservationLimitType == "MONTH" ? addMonths(new Date(), reservationLimitType === "UNLIMTED" ? null : reservationLimit) :
+                reservationLimitType == "YEAR" ? addYears(new Date(), reservationLimitType === "UNLIMTED" ? null : reservationLimit) : ""
+
+// 위에서 언급한 Switch와 Case를 이용한 경우
+function getReservationLimit(reservationLimitType: ReservationLimitType, reservationLimit: number) {
+    const now = new Date();
+    switch (reservationLimitType) {
+        case "YEAR":
+            return addDays(now, reservationLimit)
+        case "MONTH":
+            return addMonths(now, reservationLimit)
+        case "WEEK":
+            return addWeeks(now, reservationLimit)
+        case "DAY":
+            return addDays(now, reservationLimit)
+        case "UNLIMITED":
+            return null
+    }
+}
+const maxDate = getReservationLimit(reservationLimitType, reservationLimit)
+```
+
 <br/>
 <div>
     <div style="font-weight: bold; font-size: 16px;">Vue 맛보기 시작 </div>
