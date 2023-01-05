@@ -39,22 +39,18 @@ document.querySelector(".button").addEventListener("click", function (()=>{
 <div>아무데나 쓰는게 아니고 위에 addEventListener처럼 쓰여야 하는 곳에만 넣을 수 있다.</div>
 
 ```javascript
-function a(){
-    console.log(1)
-} //이라고 하면
-function b(){
-    console.log(2)
+function callback(a) {
+    alert(a)
 }
 //근데 
-function a(value){
-    console.log(1)
-    value()
+const fun = async function c(){
+    console.log('aaa')
+    return 'end'
 }
-a(b)
-// 이렇게쓰면 콘솔 1, 2가 찍힌다. 순 차 적 실행
-// 근데 자바스크립트는 순차적으로 진행을 하기때문에 
-a()
-b() // 라고 해도 1, 2가 찍힐 것이다. 근데 비동기처리에 의해 혹은 다른것때매 불안함이 좀 있다. 그래서 콜백함수를 쓴다.
+
+fun().then(callback)
+
+// async를 붙히면 뒤에 promise로 then을 쓸 수 있다.
 ```
 
 <div>이정도면 콜백함수 얼추 이해를 했고, 실무에서 딥하게 더 배워봐야겠다.</div>
