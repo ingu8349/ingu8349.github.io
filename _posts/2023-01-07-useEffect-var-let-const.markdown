@@ -4,7 +4,7 @@ title:  "React useEffect와 변수 선언"
 date:   2023-01-07 18:45:36 +0900
 categories: React useEffect var let const
 ---
-## React useEffect
+React useEffect & 변수선언
 
 용어 정리
 마운트 - 화면에 첫 렌더링 <br/>
