@@ -4,7 +4,7 @@ title:  "React 시작"
 date:   2023-01-04 20:55:36 +0900
 categories: React JSX Component
 ---
-<h1>React 문서보기 시작</h1>
+## React 문서보기 시작
 
 <div>
     <div>React는 별도의 파일에 마크업과 로직을 넣어 기술을 인위적으로 분리하는 대신, 둘 다 포함하는 “컴포넌트”라고 부르는 느슨하게 연결된 유닛으로 관심사를 분리합니다</div><br/>
