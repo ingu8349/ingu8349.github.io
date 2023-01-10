@@ -1,0 +1,46 @@
+---
+layout: post
+title:  "useRef"
+date:   2023-01-10 22:45:36 +0900
+categories: useRef reactHook
+---
+useRef 배워보기
+
+```javascript
+//함수형 컴포넌트에서 useRef를 부르면 ref 오브젝트를 반환해준다.
+const ref = useRef(value)
+ref = { current:value } // ref는 이렇게 생겼다.
+```
+## 반환된 Ref는 컴포넌트의 전 생애주기를 통해 유지가 된다.
+
+컴포넌트가 계속해서 렌더링이 되어도 언마운트되기 전까지는 값을 계속 유지한다.
+
+대표적 사용 상황 1<br />
+** ref는 state처럼 저장공간이다. state를 변경하면 자동으로 컴포넌트가 다시 렌더링이 되는데,
+** ref는 렌더링이 되지않고, 그래서 변수들의 값을 계속 유지한다. 
+## => 불필요한 렌더링을 막는다.
+
+성능에 영향을 주는 Ref! Ref는 변화는 감지해야하지만, 그 변화가 렌더링을 발생시키지 않아야하는
+상황에서 쓰면 베리굿이다.!
+
+대표적 사용 상황 2
+DOM에 접근한다. ( input요소의 focus 같은 )
+```javascript
+const ref = useRef(value)
+ref = { current:value } // 이건데
+
+//우리가 접근하려는 요소 태그에 ref 속성으로 넣어주면 쉽게 ref에 접근할 수 있다.
+
+//예시
+
+const inputRef = useRef()
+    
+return <input ref={inputRef}/> // 를 하면 console에 {current.input} 이 찍힌다.
+
+// 그래서 useEffect로
+useEffect(()=>{
+    inputRef.current.focus()
+},[]) // 이걸해주면 처음 포커스를 주는데에 요기나게 쓰일 수 있다.
+```
+
+useRef 별거 아니구만?
