@@ -20,7 +20,7 @@ const arr = str.split();
 console.log(arr) //은 ['apple banana orange']로
 // 파라미터로 아무것도 전달하지 않으면 문자열 전체를 length 1인 배열에 담아서 리턴
 
-const arr = str.split(" ");
+const arr = str.split("");
 console.log(arr) //은 
 [
     'a', 'p', 'p', 'l', 'e',
