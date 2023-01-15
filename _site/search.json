@@ -1,6 +1,18 @@
 [
   
     {
+      "title"    : "Spread Opertor",
+      "title-lower"    : "spread opertor",
+      "sub-titile" : "",
+      "sub-titile-lower" : "",
+      "categories" : "javascriptES6SpreadOpertor",
+      "tags"     : "",
+      "url"      : "/javascript/es6/spread/opertor/2023/01/15/Spread-Opertor.html",
+      "date"     : "2023-01-15 21:10:03 +0900",
+      "content"     : "간략하게 Spread Opertor 알아보기스프레드 연산자를 사용하면 배열, 문자열, 객체 등 반복 가능한 객체 (Iterable Object)를 개별 요소로 분리할 수 있다.요새 자주 보이는 … 이런걸 스프레드 연산자라고 하는데,꽤나 자주 접하는 부분이라 이렇게 한 파트로 지정했다. 짧겠지만 유용한 글이 될거다.쭉 보니 예시를 통해 이해하는게 좋을 ..."
+    } ,
+  
+    {
       "title"    : "10진수,2진수, reduce",
       "title-lower"    : "10진수,2진수, reduce",
       "sub-titile" : "",

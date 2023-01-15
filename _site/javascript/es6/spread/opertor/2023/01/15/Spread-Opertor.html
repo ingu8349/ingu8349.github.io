@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<title>Spread Opertor</title>
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Spread Opertor | 인구의 자기계개발</title>
+<meta name="generator" content="Jekyll v4.3.1" />
+<meta property="og:title" content="Spread Opertor" />
+<meta name="author" content="GitHub User" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="간략하게 Spread Opertor 알아보기" />
+<meta property="og:description" content="간략하게 Spread Opertor 알아보기" />
+<link rel="canonical" href="http://localhost:4000/javascript/es6/spread/opertor/2023/01/15/Spread-Opertor.html" />
+<meta property="og:url" content="http://localhost:4000/javascript/es6/spread/opertor/2023/01/15/Spread-Opertor.html" />
+<meta property="og:site_name" content="인구의 자기계개발" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-01-15T21:10:03+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Spread Opertor" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"GitHub User"},"dateModified":"2023-01-15T21:10:03+09:00","datePublished":"2023-01-15T21:10:03+09:00","description":"간략하게 Spread Opertor 알아보기","headline":"Spread Opertor","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/javascript/es6/spread/opertor/2023/01/15/Spread-Opertor.html"},"url":"http://localhost:4000/javascript/es6/spread/opertor/2023/01/15/Spread-Opertor.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<script type="text/javascript" src="/assets/js/darkmode.js"></script>
+
+</head><body>
+  <main class="container">
+    <section class="about">
+      <div class="about-header condensed">
+      <div class="about-title">
+      <a href="/">
+        
+        <img src="/assets/portfolio.png" alt="Ingu Kim" />
+        
+      </a>
+      <h2 id="title">
+        <a href="/">Ingu Kim</a>
+      </h2>
+      </div><p class="tagline">개 발 자</p></div>
+      
+      <ul class="social about-footer condensed"><a href="https://github.com/ingu8349" target="_blank">
+          <li>
+            <i class="icon-github-circled"></i>
+          </li>
+        </a></ul><p class="about-footer condensed">&copy;
+        2023</p><div class="about-footer condensed">
+        <p>Dark Mode
+          <i class="icon-moon"></i>
+          <label class="switch">
+            <input type="checkbox" class="dark-mode-toggle">
+            <span class="slider round" onclick="toggleDarkMode()"></span>
+          </label>
+        </p>
+      </div>
+    </section>
+    <section class="content">
+      <div class="post-container">
+  <a class="post-link" href="/javascript/es6/spread/opertor/2023/01/15/Spread-Opertor.html">
+    <h2 class="post-title">Spread Opertor</h2>
+  </a>
+  <div class="post-meta">
+    <div class="post-date"><i class="icon-calendar"></i>2023,Jan 15</div><ul class="post-categories"><li>javascript</li><li>ES6</li><li>Spread</li><li>Opertor</li></ul></div>
+  <div class="post">
+    <p>간략하게 Spread Opertor 알아보기</p>
+
+<h2 id="스프레드-연산자를-사용하면-배열-문자열-객체-등-반복-가능한-객체-iterable-object를-개별-요소로-분리할-수-있다">스프레드 연산자를 사용하면 배열, 문자열, 객체 등 반복 가능한 객체 (Iterable Object)를 개별 요소로 분리할 수 있다.</h2>
+
+<p>요새 자주 보이는 … 이런걸 스프레드 연산자라고 하는데,
+꽤나 자주 접하는 부분이라 이렇게 한 파트로 지정했다. 짧겠지만 유용한 글이 될거다.</p>
+
+<p>쭉 보니 예시를 통해 이해하는게 좋을 것 같다.</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Array</span>
+<span class="kd">var</span> <span class="nx">arr1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">];</span> 
+<span class="kd">var</span> <span class="nx">arr2</span> <span class="o">=</span> <span class="p">[...</span><span class="nx">arr1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">];</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr2</span><span class="p">);</span> <span class="c1">// [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]</span>
+
+<span class="c1">// String</span>
+<span class="kd">var</span> <span class="nx">str1</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">friend</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">str2</span> <span class="o">=</span> <span class="p">[...</span><span class="nx">str1</span><span class="p">];</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str2</span><span class="p">);</span> <span class="c1">// [ "f","r","i","e","n","d"]</span>
+</code></pre></div></div>
+
+<p>감이온다.</p>
+
+<ol>
+  <li>배열에서의 Spread Operator
+ES6에서는 spread 연산자를 이용하여 배열 병합이 가능 ( = concat과 같다.)
+```javascript
+var arr1 = [1, 2, 3, 4];
+var arr2 = [5, 6];
+var arr = arr1.concat(arr2); // [1,2,3,4,5,6]
+// 이것처럼
+var arr = […arr1, …arr2]; // [1,2,3,4,5,6]</li>
+</ol>
+
+<p>var arr1 = [1,2,3];
+var arr2 = [4,5,6];
+arr1.push(…arr2) // [1,2,3,4,5,6]</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+2. 배열 복사
+```javascript
+var arr1 = ['1','2']; 
+var arr2 = [...arr1];
+arr2.push('3');
+console.log(arr2); // [ "1", "2", "3" ]
+// 원본 배열은 변경되지 않는다.
+console.log(arr1); // [ "1", "2" ]
+
+//만약에
+var arr1 = ['1','2'];
+var arr2 = arr1;
+arr2.push('3');
+console.log(arr2); // [ "1", "2", "3" ]
+// 이렇게 arr2는 위와 같지만 arr1 또한 영향을 받아서 [1,2,3]이 나오기 때문에 조심해야 된다.
+</code></pre></div></div>
+
+<ol>
+  <li>객체 복사
+```javascript
+var currentState = { name: ‘길동’, species: ‘human’};
+currentState = { …currentState, age: 10};</li>
+</ol>
+
+<p>console.log(currentState)// {name: “길동”, species: “human”, age: 10}</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>단박에 이해가 간다.
+
+4. 함수에서의 Spread Operator
+   함수를 호출할 때 함수의 매개변수(parameter)를 spread operator로 작성한 형태를 Rest parameter라고 부르고,
+   Rest 파라미터를 사용하면 함수의 파라미터로 오는 값들을 모아서 "배열"에 집어넣는다!
+```javascript
+function add(...restParameter) {
+  let sum = 0;
+  for (let item of restParameter) {
+    sum += item;
+  }
+  return sum;
+}
+console.log( add(1) ); // 1
+console.log( add(1, 2) ); // 3
+console.log( add(1, 2, 4) ); // 7
+</code></pre></div></div>
+
+<p>아주 유용하게 써먹을거같다.</p>
+
+  </div></div>
+
+    </section>
+    <footer class="condensed">
+      <ul class="social about-footer condensed"><a href="https://github.com/ingu8349" target="_blank">
+          <li>
+            <i class="icon-github-circled"></i>
+          </li>
+        </a></ul><p class="about-footer condensed">&copy;
+        2023</p><div class="about-footer condensed">
+        <p>Dark Mode
+          <i class="icon-moon"></i>
+          <label class="switch">
+            <input type="checkbox" class="dark-mode-toggle">
+            <span class="slider round" onclick="toggleDarkMode()"></span>
+          </label>
+        </p>
+      </div>
+    </footer>
+  </main>
+  
+  <script type="text/javascript" src="/assets/js/darkmode.js"></script>
+  
+  <script src="/assets/js/simple-jekyll-search.min.js"></script>
+  <script src="/assets/js/search.js"></script>
+  
+</body>
+
+</html>
