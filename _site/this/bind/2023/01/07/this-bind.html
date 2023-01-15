@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<title>this와 바인드</title>
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>this와 바인드 | 인구의 자기계개발</title>
+<meta name="generator" content="Jekyll v4.3.1" />
+<meta property="og:title" content="this와 바인드" />
+<meta name="author" content="GitHub User" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="this와 바인드" />
+<meta property="og:description" content="this와 바인드" />
+<link rel="canonical" href="http://localhost:4000/this/bind/2023/01/07/this-bind.html" />
+<meta property="og:url" content="http://localhost:4000/this/bind/2023/01/07/this-bind.html" />
+<meta property="og:site_name" content="인구의 자기계개발" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-01-07T18:45:36+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="this와 바인드" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"GitHub User"},"dateModified":"2023-01-07T18:45:36+09:00","datePublished":"2023-01-07T18:45:36+09:00","description":"this와 바인드","headline":"this와 바인드","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/this/bind/2023/01/07/this-bind.html"},"url":"http://localhost:4000/this/bind/2023/01/07/this-bind.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<script type="text/javascript" src="/assets/js/darkmode.js"></script>
+
+</head><body>
+  <main class="container">
+    <section class="about">
+      <div class="about-header condensed">
+      <div class="about-title">
+      <a href="/">
+        
+        <img src="/assets/portfolio.png" alt="Ingu Kim" />
+        
+      </a>
+      <h2 id="title">
+        <a href="/">Ingu Kim</a>
+      </h2>
+      </div><p class="tagline">개 발 자</p></div>
+      
+      <ul class="social about-footer condensed"><a href="https://github.com/ingu8349" target="_blank">
+          <li>
+            <i class="icon-github-circled"></i>
+          </li>
+        </a></ul><p class="about-footer condensed">&copy;
+        2023</p><div class="about-footer condensed">
+        <p>Dark Mode
+          <i class="icon-moon"></i>
+          <label class="switch">
+            <input type="checkbox" class="dark-mode-toggle">
+            <span class="slider round" onclick="toggleDarkMode()"></span>
+          </label>
+        </p>
+      </div>
+    </section>
+    <section class="content">
+      <div class="post-container">
+  <a class="post-link" href="/this/bind/2023/01/07/this-bind.html">
+    <h2 class="post-title">this와 바인드</h2>
+  </a>
+  <div class="post-meta">
+    <div class="post-date"><i class="icon-calendar"></i>2023,Jan 7</div><ul class="post-categories"><li>this</li><li>bind</li></ul></div>
+  <div class="post">
+    <p>this와 바인드</p>
+
+<h2 id="this는-함수를-호출한-객체이다">this는 함수를 호출한 객체이다.</h2>
+<p>말이 겁나게 어렵다.,</p>
+
+<p>일단 함수외부에서, 전역적인 문맥에서 this를 접근하면 Window의 객체를 나타낸다.
+‘use strict’ 엄격 모드에서도 window의 객체가 나타난다.</p>
+
+<p>함수 내부에서의 this</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">main</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">)</span> <span class="c1">// window의 객체</span>
+<span class="p">}</span>
+<span class="c1">//여기서 this는 어떻게 호출했느냐에 따라 달라진다.</span>
+<span class="c1">//우선 우리가 저렇게 function을 써서 함수를 만들면 이건 window객체에 등록이 된다.</span>
+<span class="c1">// 쉽게 window.main() 이라고 쓴거랑 같다고 보면된다.</span>
+</code></pre></div></div>
+
+<p>이젠 다르게</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">object</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">홍길동</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">main</span><span class="p">:</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="c1">// 매서드는 객체의 속성으로 넣어진 함수를 의미한다.</span>
+<span class="p">}</span>
+
+<span class="nx">object</span><span class="p">.</span><span class="nx">main</span><span class="p">()</span> <span class="c1">// 이렇게 하면 값은 {name:"홍길동, main: f}</span>
+<span class="c1">// 유용하게 쓰는 법은 이제 위에 console.log(this)에서 this.name 으로 홍길동을 뽑아낼 수 있다.</span>
+</code></pre></div></div>
+<p>다른 쪽으로도 보자</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">main</span><span class="p">(){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="kd">const</span> <span class="nx">object</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">홍길동</span><span class="dl">"</span><span class="p">,</span>
+    <span class="nx">main</span> <span class="c1">// main = main 이기 때문에 저렇게 써도 된다.</span>
+<span class="p">}</span>
+<span class="nx">object</span><span class="p">.</span><span class="nx">main</span><span class="p">()</span>
+<span class="c1">// 함수가 외부에서 정의 되었어도 main함수를 호출한 객체가 object이므로 {name:"홍길동, main: f}이 뜬다.</span>
+</code></pre></div></div>
+<p>객체 안의 객체</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">main</span><span class="p">(){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="kd">const</span> <span class="nx">object</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">홍길동</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">smallObject</span><span class="p">:</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">홍홍홍</span><span class="dl">"</span><span class="p">,</span> <span class="nx">main</span><span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">object</span><span class="p">.</span><span class="nx">smallObject</span><span class="p">.</span><span class="nx">main</span><span class="p">()</span>
+<span class="c1">// 이거는 {name: "홍홍홍", main: f}, 뜬다. 이해가 잘간다..ㅎㅎ</span>
+</code></pre></div></div>
+
+<p>하지만 이런 this값을 일일히 추적하는건 굉장히 귀찮은 일이다.
+이런 this값을 고정할 수 있다면 어떨까?</p>
+<h2 id="그럴때-바로-bind를-이용한다">그럴때 바로 bind를 이용한다.</h2>
+<p>binding 객체를 묶어준다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">main</span><span class="p">(){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+<span class="p">}</span><span class="c1">// 원래 이렇게 전역으로 하면 window의 객체가 호출되지만, 밑에처럼 바인드를 하면 뭘해도 저게뜬다.</span>
+<span class="kd">const</span> <span class="nx">mainBind</span> <span class="o">=</span> <span class="nx">main</span><span class="p">.</span><span class="nx">bind</span><span class="p">({</span><span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">hi</span><span class="dl">"</span><span class="p">})</span>
+<span class="nx">mainBind</span><span class="p">()</span> <span class="c1">// 이러면 기존의 window객체가 아닌 {name: "hi"} 값이 뜬다.</span>
+</code></pre></div></div>
+
+<h2 id="주의할-점-이미-바인드한-걸-또-바인드-할-수는-없다">주의할 점. 이미 바인드한 걸 또 바인드 할 수는 없다.</h2>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">main</span><span class="p">(){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="kd">const</span> <span class="nx">mainBind</span> <span class="o">=</span> <span class="nx">main</span><span class="p">.</span><span class="nx">bind</span><span class="p">({</span><span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">hi</span><span class="dl">"</span><span class="p">})</span>
+<span class="nx">mainBind</span><span class="p">()</span> 
+<span class="kd">const</span> <span class="nx">mainBindBind</span> <span class="o">=</span> <span class="nx">mainBind</span><span class="p">.</span><span class="nx">bind</span><span class="p">({</span><span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span><span class="p">})</span> <span class="c1">// 이렇게 해도 hi가 뜨지 hello가 적용되지 않는다.</span>
+
+<span class="c1">// 또다른 예시</span>
+
+<span class="kd">const</span> <span class="nx">object</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">홍길동</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">main</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(){</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">)</span> <span class="c1">// 원래는 홍길동,f 이게 뜨겠지만</span>
+    <span class="p">}.</span><span class="nx">bind</span><span class="p">({</span><span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">세종대왕</span><span class="dl">"</span><span class="p">})</span>
+<span class="p">}</span>
+<span class="c1">// 이렇게되면 세종대왕이 뜨게된다. 바인딩때문에</span>
+</code></pre></div></div>
+
+<p>이벤트처리기에서 this</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">button</span> <span class="nx">id</span><span class="o">=</span><span class="dl">"</span><span class="s2">btn</span><span class="dl">"</span><span class="o">/&gt;</span>
+<span class="kd">const</span> <span class="nx">button</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">btn</span><span class="dl">"</span><span class="p">)</span>
+<span class="nx">button</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">click</span><span class="dl">'</span><span class="p">,</span><span class="kd">function</span> <span class="p">(){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">)</span> <span class="c1">//  &lt;button id="btn"/&gt; 이 뜬다.</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+  </div></div>
+
+    </section>
+    <footer class="condensed">
+      <ul class="social about-footer condensed"><a href="https://github.com/ingu8349" target="_blank">
+          <li>
+            <i class="icon-github-circled"></i>
+          </li>
+        </a></ul><p class="about-footer condensed">&copy;
+        2023</p><div class="about-footer condensed">
+        <p>Dark Mode
+          <i class="icon-moon"></i>
+          <label class="switch">
+            <input type="checkbox" class="dark-mode-toggle">
+            <span class="slider round" onclick="toggleDarkMode()"></span>
+          </label>
+        </p>
+      </div>
+    </footer>
+  </main>
+  
+  <script type="text/javascript" src="/assets/js/darkmode.js"></script>
+  
+  <script src="/assets/js/simple-jekyll-search.min.js"></script>
+  <script src="/assets/js/search.js"></script>
+  
+</body>
+
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<title>substring, slice 알아보기</title>
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>substring, slice 알아보기 | 인구의 자기계개발</title>
+<meta name="generator" content="Jekyll v4.3.1" />
+<meta property="og:title" content="substring, slice 알아보기" />
+<meta name="author" content="GitHub User" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Javascript에서 substring(), slice() 함수는 모두 문자열을 잘라주는 역할을 한다. substring에 대해 알아본다." />
+<meta property="og:description" content="Javascript에서 substring(), slice() 함수는 모두 문자열을 잘라주는 역할을 한다. substring에 대해 알아본다." />
+<link rel="canonical" href="http://localhost:4000/javascript/substring/slice/2023/01/12/substring-slice.html" />
+<meta property="og:url" content="http://localhost:4000/javascript/substring/slice/2023/01/12/substring-slice.html" />
+<meta property="og:site_name" content="인구의 자기계개발" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-01-12T22:10:03+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="substring, slice 알아보기" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"GitHub User"},"dateModified":"2023-01-12T22:10:03+09:00","datePublished":"2023-01-12T22:10:03+09:00","description":"Javascript에서 substring(), slice() 함수는 모두 문자열을 잘라주는 역할을 한다. substring에 대해 알아본다.","headline":"substring, slice 알아보기","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/javascript/substring/slice/2023/01/12/substring-slice.html"},"url":"http://localhost:4000/javascript/substring/slice/2023/01/12/substring-slice.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<script type="text/javascript" src="/assets/js/darkmode.js"></script>
+
+</head><body>
+  <main class="container">
+    <section class="about">
+      <div class="about-header condensed">
+      <div class="about-title">
+      <a href="/">
+        
+        <img src="/assets/portfolio.png" alt="Ingu Kim" />
+        
+      </a>
+      <h2 id="title">
+        <a href="/">Ingu Kim</a>
+      </h2>
+      </div><p class="tagline">개 발 자</p></div>
+      
+      <ul class="social about-footer condensed"><a href="https://github.com/ingu8349" target="_blank">
+          <li>
+            <i class="icon-github-circled"></i>
+          </li>
+        </a></ul><p class="about-footer condensed">&copy;
+        2023</p><div class="about-footer condensed">
+        <p>Dark Mode
+          <i class="icon-moon"></i>
+          <label class="switch">
+            <input type="checkbox" class="dark-mode-toggle">
+            <span class="slider round" onclick="toggleDarkMode()"></span>
+          </label>
+        </p>
+      </div>
+    </section>
+    <section class="content">
+      <div class="post-container">
+  <a class="post-link" href="/javascript/substring/slice/2023/01/12/substring-slice.html">
+    <h2 class="post-title">substring, slice 알아보기</h2>
+  </a>
+  <div class="post-meta">
+    <div class="post-date"><i class="icon-calendar"></i>2023,Jan 12</div><ul class="post-categories"><li>javascript</li><li>substring</li><li>slice</li></ul></div>
+  <div class="post">
+    <p>Javascript에서 substring(), slice() 함수는 모두 문자열을 잘라주는 역할을 한다.
+substring에 대해 알아본다.</p>
+
+<p>오늘 코드테스트 예문을 푸는데 내가 했던 방식 말고 ,substring를 써서
+쉽게 답이 나왔던 코드가 있었는데, substring를 몰라 쏟아부은 시간이 꽤나있어서,
+substring를 기억하고서 다음에 써먹으면 유용할 것 같아 글을 남긴다.</p>
+
+<h2 id="substring-메소드는-string-객체의-시작-인덱스로-부터-종료-인덱스-전-까지-문자열의-부분-문자열을-반환합니다">substring() 메소드는 string 객체의 시작 인덱스로 부터 종료 인덱스 전 까지 문자열의 부분 문자열을 반환합니다.</h2>
+
+<p>말이 좀 어려운데,</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Mozilla</span><span class="dl">'</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">));</span> <span class="c1">// "oz"</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span> <span class="c1">// "zilla"</span>
+<span class="c1">//  추가 예시</span>
+
+<span class="kd">var</span> <span class="nx">anyString</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Mozilla</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="c1">// Displays 'M'</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">anyString</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">anyString</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span>
+
+<span class="c1">// Displays 'Mozill'</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">anyString</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">));</span>
+
+<span class="c1">// Displays 'lla'</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">anyString</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">4</span><span class="p">));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">anyString</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">anyString</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">));</span>
+
+<span class="c1">// Displays 'Mozilla'</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">anyString</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">anyString</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">));</span>
+
+</code></pre></div></div>
+<p>요정도로 이해하면 될 것같다.</p>
+
+<p>이제 slice</p>
+
+<p>slice() 함수는 substring() 함수와 사용법이 같고,</p>
+
+<p>substring() 함수와 마찬가지로 파라미터로 자를 문자열의 start index와 end index를 전달한다.
+이거도 예시를 보면 이해에 도움이 될 것 같다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">안녕하세요?</span><span class="dl">"</span>
+<span class="kd">let</span> <span class="nx">first_char</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// 안</span>
+<span class="kd">let</span> <span class="nx">second_char</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">// 녕</span>
+<span class="kd">let</span> <span class="nx">last_char</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">length</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nx">str</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// ?</span>
+</code></pre></div></div>
+
+<p>근데 의문점.. 두개가 쓰는게 똑같아 보인다.
+차이점은 뭘까?</p>
+
+<h2 id="파라미터로-전달되는-start--end-일-경우-두-함수의-처리가-다르다">파라미터로 전달되는 start &gt; end 일 경우 두 함수의 처리가 다르다!</h2>
+<p>substring() : start 값과 end 값을 바꾸어서 처리.
+slice() : 그냥 비어있는 string, 즉 ““을 리턴.</p>
+
+<p>다른 상황</p>
+
+<p>start 또는 end 값이 음수인 경우</p>
+
+<p>slice() : string의 가장 뒤에서 음수의 절대값만큼 내려온 index로 취급
+substring() : start값이 음수인 경우, start값은 0으로 취급, end값이 음수인 경우에도, start값과 마찬가지로 end값은 0으로 취급</p>
+
+<p>유 용 하네. 언제한번 써먹어 봐야겠다!</p>
+
+  </div></div>
+
+    </section>
+    <footer class="condensed">
+      <ul class="social about-footer condensed"><a href="https://github.com/ingu8349" target="_blank">
+          <li>
+            <i class="icon-github-circled"></i>
+          </li>
+        </a></ul><p class="about-footer condensed">&copy;
+        2023</p><div class="about-footer condensed">
+        <p>Dark Mode
+          <i class="icon-moon"></i>
+          <label class="switch">
+            <input type="checkbox" class="dark-mode-toggle">
+            <span class="slider round" onclick="toggleDarkMode()"></span>
+          </label>
+        </p>
+      </div>
+    </footer>
+  </main>
+  
+  <script type="text/javascript" src="/assets/js/darkmode.js"></script>
+  
+  <script src="/assets/js/simple-jekyll-search.min.js"></script>
+  <script src="/assets/js/search.js"></script>
+  
+</body>
+
+</html>

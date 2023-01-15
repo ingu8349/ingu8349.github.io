@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<title>split(), indexOf() 정확하게 알기</title>
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>split(), indexOf() 정확하게 알기 | 인구의 자기계개발</title>
+<meta name="generator" content="Jekyll v4.3.1" />
+<meta property="og:title" content="split(), indexOf() 정확하게 알기" />
+<meta name="author" content="GitHub User" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="javascript 그 중에서도 split, indexOf 제대로 알기" />
+<meta property="og:description" content="javascript 그 중에서도 split, indexOf 제대로 알기" />
+<link rel="canonical" href="http://localhost:4000/javascript/split/indexof/2023/01/11/javascript-split.html" />
+<meta property="og:url" content="http://localhost:4000/javascript/split/indexof/2023/01/11/javascript-split.html" />
+<meta property="og:site_name" content="인구의 자기계개발" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-01-11T21:35:36+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="split(), indexOf() 정확하게 알기" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"GitHub User"},"dateModified":"2023-01-11T21:35:36+09:00","datePublished":"2023-01-11T21:35:36+09:00","description":"javascript 그 중에서도 split, indexOf 제대로 알기","headline":"split(), indexOf() 정확하게 알기","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/javascript/split/indexof/2023/01/11/javascript-split.html"},"url":"http://localhost:4000/javascript/split/indexof/2023/01/11/javascript-split.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<script type="text/javascript" src="/assets/js/darkmode.js"></script>
+
+</head><body>
+  <main class="container">
+    <section class="about">
+      <div class="about-header condensed">
+      <div class="about-title">
+      <a href="/">
+        
+        <img src="/assets/portfolio.png" alt="Ingu Kim" />
+        
+      </a>
+      <h2 id="title">
+        <a href="/">Ingu Kim</a>
+      </h2>
+      </div><p class="tagline">개 발 자</p></div>
+      
+      <ul class="social about-footer condensed"><a href="https://github.com/ingu8349" target="_blank">
+          <li>
+            <i class="icon-github-circled"></i>
+          </li>
+        </a></ul><p class="about-footer condensed">&copy;
+        2023</p><div class="about-footer condensed">
+        <p>Dark Mode
+          <i class="icon-moon"></i>
+          <label class="switch">
+            <input type="checkbox" class="dark-mode-toggle">
+            <span class="slider round" onclick="toggleDarkMode()"></span>
+          </label>
+        </p>
+      </div>
+    </section>
+    <section class="content">
+      <div class="post-container">
+  <a class="post-link" href="/javascript/split/indexof/2023/01/11/javascript-split.html">
+    <h2 class="post-title">split(), indexOf() 정확하게 알기</h2>
+  </a>
+  <div class="post-meta">
+    <div class="post-date"><i class="icon-calendar"></i>2023,Jan 11</div><ul class="post-categories"><li>javascript</li><li>split</li><li>indexOf</li></ul></div>
+  <div class="post">
+    <p>javascript 그 중에서도 split, indexOf 제대로 알기</p>
+
+<p>코딩테스트 연습을 쭉해오다 보니 꽤나 자주 사용되는 것 중 하나인 split, indexOf</p>
+
+<h2 id="stringsplitseparator-limit">string.split(separator, limit)</h2>
+<p>split() 함수는 문자열을 ‘separator’로 잘라서, ‘limit’ 크기 이하의 배열에 잘라진 문자열을 저장하여 리턴한다.</p>
+<ul>
+  <li>separator = 문자열을 잘라 줄 구분자 (문자열 또는 정규식)</li>
+  <li>limit = 최대 분할 갯수</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">const</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">apple banana orange</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">arr</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">split</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="c1">//은 ['apple banana orange']로</span>
+<span class="c1">// 파라미터로 아무것도 전달하지 않으면 문자열 전체를 length 1인 배열에 담아서 리턴</span>
+
+<span class="kd">const</span> <span class="nx">arr</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">""</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="c1">//은 </span>
+<span class="p">[</span>
+    <span class="dl">'</span><span class="s1">a</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">p</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">p</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">l</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">e</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">b</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">a</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">n</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">a</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">n</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">a</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">o</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">r</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">a</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">n</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">g</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">e</span><span class="dl">'</span>
+<span class="p">]</span> <span class="c1">// 이렇게 문자열을 조각 내서 나온다.</span>
+
+<span class="kd">const</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">apple,banana,orange</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">arr</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">"</span><span class="s2">,</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="c1">//은 ["apple", "banana", "orange"]</span>
+<span class="c1">//separator(여기서는 ',')를 지정하여, 문자열을 separator로 잘라서 만들어진 조각들을 배열에 담아서 리턴.</span>
+
+<span class="kd">const</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">apple,banana,orange</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">arr</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">"</span><span class="s2">,</span><span class="dl">"</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="c1">//	[ 'apple', 'banana' ]</span>
+
+<span class="c1">// 두번째 파라미터인 limit 값을 지정</span>
+<span class="c1">// 문자열을 ','로 자르면 총 3개의 배열이 나오는데, limit이 2여서 2개 배열만 나옴.</span>
+
+</code></pre></div></div>
+
+<h2 id="stringindexofsearchvalue-position">string.indexOf(searchvalue, position)</h2>
+<p>문자열(string)에서 특정 문자열(searchvalue)을 찾고, 검색된 문자열이 ‘첫번째’로 나타나는 위치 index를 리턴합니다.</p>
+<ul>
+  <li>찾는 문자열이 없으면 -1 리턴</li>
+  <li>대소문자 구분하니 주의 필요.</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">const</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">abcd</span><span class="dl">"</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="dl">"</span><span class="s2">b</span><span class="dl">"</span><span class="p">))</span> <span class="c1">// 1 이 나옴</span>
+
+<span class="kd">const</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">abcdabcd</span><span class="dl">"</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="dl">"</span><span class="s2">c</span><span class="dl">"</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1">// 6이 나옴, 문자열 3부터 찾으라고했으니, 인덱스 2에 있어도 안찾음</span>
+
+</code></pre></div></div>
+
+<p>개념정리 한 번 해봤음. 다른거도 해야징</p>
+
+  </div></div>
+
+    </section>
+    <footer class="condensed">
+      <ul class="social about-footer condensed"><a href="https://github.com/ingu8349" target="_blank">
+          <li>
+            <i class="icon-github-circled"></i>
+          </li>
+        </a></ul><p class="about-footer condensed">&copy;
+        2023</p><div class="about-footer condensed">
+        <p>Dark Mode
+          <i class="icon-moon"></i>
+          <label class="switch">
+            <input type="checkbox" class="dark-mode-toggle">
+            <span class="slider round" onclick="toggleDarkMode()"></span>
+          </label>
+        </p>
+      </div>
+    </footer>
+  </main>
+  
+  <script type="text/javascript" src="/assets/js/darkmode.js"></script>
+  
+  <script src="/assets/js/simple-jekyll-search.min.js"></script>
+  <script src="/assets/js/search.js"></script>
+  
+</body>
+
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<title>10진수,2진수, reduce</title>
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>10진수,2진수, reduce | 인구의 자기계개발</title>
+<meta name="generator" content="Jekyll v4.3.1" />
+<meta property="og:title" content="10진수,2진수, reduce" />
+<meta name="author" content="GitHub User" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="reduce, set과 진수변환에 대해 알아보려고 한다." />
+<meta property="og:description" content="reduce, set과 진수변환에 대해 알아보려고 한다." />
+<link rel="canonical" href="http://localhost:4000/javascript/10%EC%A7%84%EC%88%98/2%EC%A7%84%EC%88%98/reduce/set/2023/01/15/parseInt-%EC%A7%84%EC%88%98.html" />
+<meta property="og:url" content="http://localhost:4000/javascript/10%EC%A7%84%EC%88%98/2%EC%A7%84%EC%88%98/reduce/set/2023/01/15/parseInt-%EC%A7%84%EC%88%98.html" />
+<meta property="og:site_name" content="인구의 자기계개발" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-01-15T20:10:03+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="10진수,2진수, reduce" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"GitHub User"},"dateModified":"2023-01-15T20:10:03+09:00","datePublished":"2023-01-15T20:10:03+09:00","description":"reduce, set과 진수변환에 대해 알아보려고 한다.","headline":"10진수,2진수, reduce","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/javascript/10%EC%A7%84%EC%88%98/2%EC%A7%84%EC%88%98/reduce/set/2023/01/15/parseInt-%EC%A7%84%EC%88%98.html"},"url":"http://localhost:4000/javascript/10%EC%A7%84%EC%88%98/2%EC%A7%84%EC%88%98/reduce/set/2023/01/15/parseInt-%EC%A7%84%EC%88%98.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<script type="text/javascript" src="/assets/js/darkmode.js"></script>
+
+</head><body>
+  <main class="container">
+    <section class="about">
+      <div class="about-header condensed">
+      <div class="about-title">
+      <a href="/">
+        
+        <img src="/assets/portfolio.png" alt="Ingu Kim" />
+        
+      </a>
+      <h2 id="title">
+        <a href="/">Ingu Kim</a>
+      </h2>
+      </div><p class="tagline">개 발 자</p></div>
+      
+      <ul class="social about-footer condensed"><a href="https://github.com/ingu8349" target="_blank">
+          <li>
+            <i class="icon-github-circled"></i>
+          </li>
+        </a></ul><p class="about-footer condensed">&copy;
+        2023</p><div class="about-footer condensed">
+        <p>Dark Mode
+          <i class="icon-moon"></i>
+          <label class="switch">
+            <input type="checkbox" class="dark-mode-toggle">
+            <span class="slider round" onclick="toggleDarkMode()"></span>
+          </label>
+        </p>
+      </div>
+    </section>
+    <section class="content">
+      <div class="post-container">
+  <a class="post-link" href="/javascript/10%EC%A7%84%EC%88%98/2%EC%A7%84%EC%88%98/reduce/set/2023/01/15/parseInt-%EC%A7%84%EC%88%98.html">
+    <h2 class="post-title">10진수,2진수, reduce</h2>
+  </a>
+  <div class="post-meta">
+    <div class="post-date"><i class="icon-calendar"></i>2023,Jan 15</div><ul class="post-categories"><li>javascript</li><li>10진수</li><li>2진수</li><li>reduce</li><li>set</li></ul></div>
+  <div class="post">
+    <p>reduce, set과 진수변환에 대해 알아보려고 한다.</p>
+
+<p>일단 진수같은 경우는 보통 우리가 10진수를 사용해서,, 컴퓨터는 2진수를 사용한다!라는 말을
+듣는 것 외에는 실상 쓸일이 없는데, 코딩테스트를 접해보니.. 은근 10진수에서 2진수변환, 2진수에서 10진수 변환
+이런걸 접할일이 많은 것을 알고, 찾아본 다음 정리해본다.</p>
+
+<p>우선 먼저 이미 알고있었 던 10진수에서 2진수로의 변환</p>
+
+<p>기존 toString()을 이용하면 쉽게 할 수 있었다.</p>
+<h2 id="the-tostring-은-문자열을-반환하는-object의-대표적인-방법이다">The toString() 은 문자열을 반환하는 object의 대표적인 방법이다</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Dog</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">const</span> <span class="nx">dog1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Dog</span><span class="p">(</span><span class="dl">'</span><span class="s1">Gabby</span><span class="dl">'</span><span class="p">);</span>
+<span class="c1">// 객체 지향 프로그래밍..ㅋㅋㅋㅋ</span>
+<span class="nx">Dog</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">dogToString</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="s2">`</span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">dog1</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+<span class="c1">// Expected output: "Gabby"</span>
+<span class="c1">// 이런식으로 이해할 수 있다. </span>
+</code></pre></div></div>
+<p>그냥 나는 타입을 string으로 바꿔주는걸로 이해하고 있다.</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">32313213</span> <span class="c1">// 이런 숫자가 있다고 보자.</span>
+<span class="c1">//이럴경우 형태가 숫자라 문자열이 아니기 때문에 split()함수를 쓸 수가 없었다. </span>
+<span class="c1">// 그래서 a.toString()으로 형태를 바꾸고 사용해야 했던 기억이 있다.</span>
+</code></pre></div></div>
+
+<p>아무튼 이렇게도 사용하지만</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//10진수로 구성된 10, 101 이런걸 2진수로 바꿔서 문제를 풀어야 했던 게 기억이 난다. 그럴 경우</span>
+<span class="kd">let</span> <span class="nx">baseTenInt</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">baseTenInt</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
+<span class="c1">// "1010"이 출력이 된다. 이렇게 간단하게 바꿀 수 있다.</span>
+</code></pre></div></div>
+
+<p>이제 반대로 2진수를 10진수로 바꿔야 하는 경우는</p>
+<h2 id="parseint를-쓰면-된다-자주보는데-명확히-하고-가야지">parseInt를 쓰면 된다. 자주보는데 명확히 하고 가야지.</h2>
+<p>parseInt() 함수는 문자열 인자를 파싱하여 특정 진수(수의 진법 체계에서 기준이 되는 값)의 정수를 반환한다..</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">parseInt</span><span class="p">(</span><span class="nx">string</span><span class="p">,</span> <span class="nx">radix</span><span class="p">);</span>
+<span class="c1">// string - 숫자로 변환할 문자열</span>
+<span class="c1">// radix </span>
+<span class="c1">// - optional</span>
+<span class="c1">// - string 문자열을 읽을 진법(수의 진법 체계의 진법)</span>
+<span class="c1">// - 2~36의 수</span>
+
+<span class="c1">//예시를 보면</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">writeln</span><span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="dl">"</span><span class="s2">10</span><span class="dl">"</span><span class="p">));</span> <span class="c1">// 10</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">writeln</span><span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="dl">"</span><span class="s2">-10</span><span class="dl">"</span><span class="p">));</span> <span class="c1">// -10</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">writeln</span><span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="dl">"</span><span class="s2">10.9</span><span class="dl">"</span><span class="p">));</span> <span class="c1">// 10</span>
+<span class="c1">//이렇게 기본적으로 쓸 수도 있고, 앞서 말한 진수 관련해서는</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">writeln</span><span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="dl">"</span><span class="s2">10</span><span class="dl">"</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span> <span class="c1">// 2</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">writeln</span><span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="dl">"</span><span class="s2">2</span><span class="dl">"</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span> <span class="c1">// NaN</span>
+<span class="c1">// 이렇게 간단히 10진수 숫자를 2진수로 바꿀 수 있다.</span>
+</code></pre></div></div>
+
+<p>2번째로는 배열에서 중복을 제거하는 데 필요한 걸 알아보다가 알게된 Set()과 reduce()</p>
+
+<p>먼저 Set()은 중복 데이터 저장을 허용하지 않는 자료구조이며. 
+이 특성을 이용하여 배열의 모든 요소를 Set에 추가하면 중복이 저절로 제거가 되는 아주,,고마운 놈이다.
+new Set(arr)는 배열의 데이터가 추가된 Set 객체가 생성되며, 중복은 허용되지 않기 때문에 1개의 요소만 추가되고,
+Set를 Array로 변경할 때는 Spread operator를 이용하면 […set]처럼 간단하게 변환할 수 있다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">2</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">3</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">2</span><span class="dl">'</span><span class="p">];</span>
+<span class="kd">const</span> <span class="kd">set</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Set</span><span class="p">(</span><span class="nx">arr</span><span class="p">);</span> <span class="c1">// 콘솔찍어보면 Set(3) { '1', '2', '3' }</span>
+<span class="kd">const</span> <span class="nx">newArr</span> <span class="o">=</span> <span class="p">[...</span><span class="kd">set</span><span class="p">];</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">newArr</span><span class="p">)</span> <span class="c1">// [1,2,3] 이며</span>
+
+<span class="c1">// 추가로</span>
+<span class="kd">const</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">2</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">3</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">2</span><span class="dl">'</span><span class="p">];</span>
+<span class="kd">const</span> <span class="nx">newArr</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="k">from</span><span class="p">(</span><span class="k">new</span> <span class="nb">Set</span><span class="p">(</span><span class="nx">arr</span><span class="p">));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">newArr</span><span class="p">)</span> <span class="c1">// 이런식으로 from을 써도 값을 같다. 어렵구만..</span>
+</code></pre></div></div>
+
+<p>2번째로는 reduce</p>
+<h2 id="reduce는-배열-요소의-값들을-순차적으로-순회하면서-하나의-값을-만드는-함수이며">reduce()는 배열 요소의 값들을 순차적으로 순회하면서 하나의 값을 만드는 함수이며.</h2>
+<p>초기값 initialValue가 주어지면, 배열의 0번 index부터 연산을 수행하고, 그 결과를 다음 연산의 인자(accumulator)로 전달한다.</p>
+
+<p>이게 무슨 말이냐면, 일단 키포인트는 reduce는 함수를 인자로 받는다. 기억하자.</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">2</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">3</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">4</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">5</span><span class="dl">'</span><span class="p">];</span>
+<span class="kd">const</span> <span class="nx">reducer</span> <span class="o">=</span> <span class="p">(</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="nx">acc</span> <span class="o">+</span> <span class="nx">value</span><span class="p">}</span> <span class="c1">// acc는 합산값, value는 배열인자</span>
+<span class="nx">arr</span><span class="p">.</span><span class="nx">reduce</span><span class="p">(</span><span class="nx">reducer</span><span class="p">)</span> <span class="c1">// 15가 나온다.</span>
+<span class="c1">//만약</span>
+<span class="nx">arr</span><span class="p">.</span><span class="nx">reduce</span><span class="p">(</span><span class="nx">reducer</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="c1">// 이러면 acc 부문이 10이되고 답은 25가 나온다.</span>
+</code></pre></div></div>
+
+<p>흠 reduce같은 경우 꽤나 자주 봤었는데 앞으로 더 쓰면서 애용해봐야겠다.</p>
+
+  </div></div>
+
+    </section>
+    <footer class="condensed">
+      <ul class="social about-footer condensed"><a href="https://github.com/ingu8349" target="_blank">
+          <li>
+            <i class="icon-github-circled"></i>
+          </li>
+        </a></ul><p class="about-footer condensed">&copy;
+        2023</p><div class="about-footer condensed">
+        <p>Dark Mode
+          <i class="icon-moon"></i>
+          <label class="switch">
+            <input type="checkbox" class="dark-mode-toggle">
+            <span class="slider round" onclick="toggleDarkMode()"></span>
+          </label>
+        </p>
+      </div>
+    </footer>
+  </main>
+  
+  <script type="text/javascript" src="/assets/js/darkmode.js"></script>
+  
+  <script src="/assets/js/simple-jekyll-search.min.js"></script>
+  <script src="/assets/js/search.js"></script>
+  
+</body>
+
+</html>

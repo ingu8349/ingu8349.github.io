@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<title>useContext, context Api 배워보기</title>
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>useContext, context Api 배워보기 | 인구의 자기계개발</title>
+<meta name="generator" content="Jekyll v4.3.1" />
+<meta property="og:title" content="useContext, context Api 배워보기" />
+<meta name="author" content="GitHub User" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="useContext 배워보기" />
+<meta property="og:description" content="useContext 배워보기" />
+<link rel="canonical" href="http://localhost:4000/usecontext/contextapi/2023/01/09/useContext.html" />
+<meta property="og:url" content="http://localhost:4000/usecontext/contextapi/2023/01/09/useContext.html" />
+<meta property="og:site_name" content="인구의 자기계개발" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-01-09T22:35:36+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="useContext, context Api 배워보기" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"GitHub User"},"dateModified":"2023-01-09T22:35:36+09:00","datePublished":"2023-01-09T22:35:36+09:00","description":"useContext 배워보기","headline":"useContext, context Api 배워보기","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/usecontext/contextapi/2023/01/09/useContext.html"},"url":"http://localhost:4000/usecontext/contextapi/2023/01/09/useContext.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<script type="text/javascript" src="/assets/js/darkmode.js"></script>
+
+</head><body>
+  <main class="container">
+    <section class="about">
+      <div class="about-header condensed">
+      <div class="about-title">
+      <a href="/">
+        
+        <img src="/assets/portfolio.png" alt="Ingu Kim" />
+        
+      </a>
+      <h2 id="title">
+        <a href="/">Ingu Kim</a>
+      </h2>
+      </div><p class="tagline">개 발 자</p></div>
+      
+      <ul class="social about-footer condensed"><a href="https://github.com/ingu8349" target="_blank">
+          <li>
+            <i class="icon-github-circled"></i>
+          </li>
+        </a></ul><p class="about-footer condensed">&copy;
+        2023</p><div class="about-footer condensed">
+        <p>Dark Mode
+          <i class="icon-moon"></i>
+          <label class="switch">
+            <input type="checkbox" class="dark-mode-toggle">
+            <span class="slider round" onclick="toggleDarkMode()"></span>
+          </label>
+        </p>
+      </div>
+    </section>
+    <section class="content">
+      <div class="post-container">
+  <a class="post-link" href="/usecontext/contextapi/2023/01/09/useContext.html">
+    <h2 class="post-title">useContext, context Api 배워보기</h2>
+  </a>
+  <div class="post-meta">
+    <div class="post-date"><i class="icon-calendar"></i>2023,Jan 9</div><ul class="post-categories"><li>useContext</li><li>contextApi</li></ul></div>
+  <div class="post">
+    <p>useContext 배워보기</p>
+
+<p>그간 reactHook을 꽤나 많이 써봤지만 useState, useEffect, useMemo, useCallback 외에
+useContext의 존재에 대해 알게 되었다. + context Api</p>
+
+<p>다른 것들을 유용하게 써왔으니, 이것에 대해도 알아보려고 한다.</p>
+
+<h2 id="context는-앱-안에서-전역적으로-사용되는-데이터들을-여러-컴포넌트들끼리-공유할-수-있는-방법을-제공해준다">context는 앱 안에서 전역적으로 사용되는 데이터들을 여러 컴포넌트들끼리 공유할 수 있는 방법을 제공해준다.</h2>
+
+<p>context를 사용하면 부모에서 자식으로 하나하나 props로 데이터를 전달해 줄 필요없이 해당값에 접근할 수 있게 해준다.</p>
+
+<ul>
+  <li>useContext는 context로 공유한 데이터들을 받아오는 react hook이다!!!</li>
+  <li>하지만 context를 사용하면 컴포넌트를 재사용하기 어려워 질 수 있어 꼭 필요할 때만 쓰는 것이 좋다.</li>
+</ul>
+
+<p>쉽게 사용법은</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kd">const</span> <span class="nx">MyContext</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createContext</span><span class="p">(</span><span class="nx">defaultValue</span><span class="p">);</span> <span class="c1">// 으로 선언을 해서 만들고</span>
+
+<span class="c1">//사용하려는 컴포넌트 바깥에다가 </span>
+<span class="o">&lt;</span><span class="nx">App</span><span class="o">/&gt;</span> <span class="c1">//이라고 하면</span>
+
+<span class="o">&lt;</span><span class="nx">MyContext</span><span class="p">.</span><span class="nx">Provider</span> <span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="cm">/* 어떤 값 */</span><span class="p">}</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">App</span><span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="sr">/MyContext.Provider&gt; /</span><span class="o">/</span> <span class="nx">이런식으로</span> <span class="nx">감싸서</span> <span class="nx">내가</span> <span class="nx">원하는</span> <span class="nx">자식</span> <span class="nx">까지</span> <span class="nx">이동을한다</span><span class="p">.</span>
+<span class="c1">// 그리고 나서 해당 컴포넌트에서</span>
+
+<span class="kd">const</span> <span class="p">{</span><span class="nx">defaultValue</span><span class="p">}</span> <span class="o">=</span> <span class="nx">useContext</span><span class="p">(</span><span class="nx">context이름</span><span class="p">)</span> <span class="c1">// 이렇게 불러와서 사용하면 된다.</span>
+</code></pre></div></div>
+
+<p>지금까지 엄청난 props 지옥에 빠졌엇는데 이거하나로 코드를 클린하게 쓸 수 있을 것 같다!</p>
+
+<p>시스템에 적용해놓은거 수정해봐이지..</p>
+
+  </div></div>
+
+    </section>
+    <footer class="condensed">
+      <ul class="social about-footer condensed"><a href="https://github.com/ingu8349" target="_blank">
+          <li>
+            <i class="icon-github-circled"></i>
+          </li>
+        </a></ul><p class="about-footer condensed">&copy;
+        2023</p><div class="about-footer condensed">
+        <p>Dark Mode
+          <i class="icon-moon"></i>
+          <label class="switch">
+            <input type="checkbox" class="dark-mode-toggle">
+            <span class="slider round" onclick="toggleDarkMode()"></span>
+          </label>
+        </p>
+      </div>
+    </footer>
+  </main>
+  
+  <script type="text/javascript" src="/assets/js/darkmode.js"></script>
+  
+  <script src="/assets/js/simple-jekyll-search.min.js"></script>
+  <script src="/assets/js/search.js"></script>
+  
+</body>
+
+</html>

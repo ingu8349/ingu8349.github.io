@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<title>React useEffect와 변수 선언</title>
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>React useEffect와 변수 선언 | 인구의 자기계개발</title>
+<meta name="generator" content="Jekyll v4.3.1" />
+<meta property="og:title" content="React useEffect와 변수 선언" />
+<meta name="author" content="GitHub User" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="React useEffect &amp; 변수선언" />
+<meta property="og:description" content="React useEffect &amp; 변수선언" />
+<link rel="canonical" href="http://localhost:4000/react/useeffect/var/let/const/2023/01/07/useEffect-var-let-const.html" />
+<meta property="og:url" content="http://localhost:4000/react/useeffect/var/let/const/2023/01/07/useEffect-var-let-const.html" />
+<meta property="og:site_name" content="인구의 자기계개발" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-01-07T18:45:36+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="React useEffect와 변수 선언" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"GitHub User"},"dateModified":"2023-01-07T18:45:36+09:00","datePublished":"2023-01-07T18:45:36+09:00","description":"React useEffect &amp; 변수선언","headline":"React useEffect와 변수 선언","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/react/useeffect/var/let/const/2023/01/07/useEffect-var-let-const.html"},"url":"http://localhost:4000/react/useeffect/var/let/const/2023/01/07/useEffect-var-let-const.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<script type="text/javascript" src="/assets/js/darkmode.js"></script>
+
+</head><body>
+  <main class="container">
+    <section class="about">
+      <div class="about-header condensed">
+      <div class="about-title">
+      <a href="/">
+        
+        <img src="/assets/portfolio.png" alt="Ingu Kim" />
+        
+      </a>
+      <h2 id="title">
+        <a href="/">Ingu Kim</a>
+      </h2>
+      </div><p class="tagline">개 발 자</p></div>
+      
+      <ul class="social about-footer condensed"><a href="https://github.com/ingu8349" target="_blank">
+          <li>
+            <i class="icon-github-circled"></i>
+          </li>
+        </a></ul><p class="about-footer condensed">&copy;
+        2023</p><div class="about-footer condensed">
+        <p>Dark Mode
+          <i class="icon-moon"></i>
+          <label class="switch">
+            <input type="checkbox" class="dark-mode-toggle">
+            <span class="slider round" onclick="toggleDarkMode()"></span>
+          </label>
+        </p>
+      </div>
+    </section>
+    <section class="content">
+      <div class="post-container">
+  <a class="post-link" href="/react/useeffect/var/let/const/2023/01/07/useEffect-var-let-const.html">
+    <h2 class="post-title">React useEffect와 변수 선언</h2>
+  </a>
+  <div class="post-meta">
+    <div class="post-date"><i class="icon-calendar"></i>2023,Jan 7</div><ul class="post-categories"><li>React</li><li>useEffect</li><li>var</li><li>let</li><li>const</li></ul></div>
+  <div class="post">
+    <p>React useEffect &amp; 변수선언</p>
+
+<p>용어 정리
+마운트 - 화면에 첫 렌더링 <br />
+업데이트 - 다시 렌더링 <br />
+언마운트 - 화면에서 사라짐 으로 이해하면 좋을 것 같다.</p>
+
+<p>** useEffect의 3가지 형태</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">useEffect</span><span class="p">(()</span><span class="o">=&gt;</span><span class="p">{</span>
+    <span class="c1">// 작업</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+<span class="c1">// 렌더링 될 때 마다 실행된다.</span>
+<span class="nx">useEffect</span><span class="p">(()</span><span class="o">=&gt;</span><span class="p">{</span>
+        <span class="c1">// 작업</span>
+    <span class="p">}</span>
+<span class="p">,[])</span> 
+<span class="c1">// 처음 렌더링 될 때만 실행</span>
+<span class="nx">useEffect</span><span class="p">(()</span><span class="o">=&gt;</span><span class="p">{</span>
+        <span class="c1">// 작업</span>
+    <span class="p">}</span>
+    <span class="p">,[</span><span class="nx">value</span><span class="p">])</span>
+<span class="c1">// 렌더링 될 때 마다 실행된다.</span>
+<span class="c1">// value값이 바뀔 떄 실행</span>
+</code></pre></div></div>
+
+<p>이정도 기초를 기반으로 쓰면 될것 같다.
+덧붙혀서</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">useEffect</span><span class="p">(()</span><span class="o">=&gt;</span><span class="p">{</span>
+    <span class="nx">어쩌구저저구</span>  <span class="c1">// 마운트될떄 발생</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="nx">어쩌구저쩌구</span> <span class="c1">// 언마운트 될때 실행 </span>
+    <span class="p">)</span>
+<span class="p">},[])</span>
+</code></pre></div></div>
+<p>알아두면 좋을 것같다..</p>
+
+<p>매번 const 를 쓰고, var, let도 써왓지만, 이번 참에 정리 한번 제대로 하고 넘어간다.</p>
+
+<p>var let = 변수 선언, const = 상수 선언 할 때 쓴다.</p>
+
+<p>var는 왜 사용하면 안되고, let, const는 왜 쓸수있을까?</p>
+<h2 id="var와-let의-차이-3가지">var와 let의 차이 3가지</h2>
+<ol>
+  <li>스코프
+    <ul>
+      <li>범위 : function, block, global 스코프가 있다. (함수범위, 블록 범위, 전역범위)</li>
+      <li>var은 function scope, let은 block scope</li>
+      <li>function scope는 변수가 선언된 함수 내부에서만 사용가능하다.</li>
+    </ul>
+  </li>
+  <li>중복선언
+    <ul>
+      <li>let은 중복선언을 허용하지 않는다.</li>
+    </ul>
+  </li>
+  <li>호이스팅 -&gt; 실행될때 미리 맨위로 끌어 올려지는것.</li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">function</span> <span class="nx">main</span><span class="p">(){</span>
+    <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">hi</span><span class="dl">"</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span>
+    <span class="c1">// 이러면 당연히 hi가 뜬다.</span>
+<span class="p">}</span>
+    <span class="c1">//그런데</span>
+    <span class="kd">function</span> <span class="nx">main</span><span class="p">(){</span>
+        <span class="k">if</span><span class="p">(</span><span class="kc">true</span><span class="p">){</span>
+        <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">hi</span><span class="dl">"</span><span class="p">;</span>
+    <span class="p">}</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span>
+        <span class="c1">// 이렇게 해도 에러가 안뜨고 hi가 뜬다. 왜냐하면 함수범위는 x가 선언된 함수라면 어디든 쓸수있기 때문이다.</span>
+<span class="p">}</span>
+<span class="c1">// 하지만 위에 var 을 let으로 바꾸면 에러가난다. 왜냐하면 선언된 블록 내부에서만 적용되기 때문이다.</span>
+</code></pre></div></div>
+
+<p>이제 문제가 되는 상황을 봐보자</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">main</span><span class="p">(){</span>
+    <span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span>
+    <span class="k">if</span><span class="p">(</span><span class="kc">true</span><span class="p">){</span>
+        <span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">hi</span><span class="dl">"</span>
+    <span class="p">}</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>
+    <span class="c1">// 이렇게 되면 let의 경우 hello가 뜨지만, </span>
+    <span class="c1">// let 을 var 로바꾼다면 hi가 뜬다. 그렇게 되면 두개가 같은 범위 안에서 중복 선언이 허용 되기 떄문에 위에껄 아래가 덮어 씌워버리게된다.</span>
+<span class="p">}</span>   
+</code></pre></div></div>
+<p>또한 var 키워드를 전역변수로 하면 window의 객체로 등록되지만,
+let은 등록되지 않는다. window는 우리가 사용하고 있는 코드, 라이브러리의 전역객체인데, 여기에 var는 영향을 주기 때문에 위험하다.</p>
+
+<p>위에 언급한 호이스팅 관련</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">hi</span><span class="dl">"</span>
+<span class="c1">//이러면 호이스팅되서 초기화 시킨다.</span>
+<span class="kd">var</span> <span class="nx">a</span> 
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>
+<span class="nx">a</span><span class="o">=</span> <span class="dl">"</span><span class="s2">hi</span><span class="dl">"</span> <span class="c1">//이런식으로 되서 console값은 에러가 안나고 undefined가 나버린다.</span>
+
+<span class="c1">// let으로 하면 에러가 난다. let도 호이스팅해서 맨위로 올리긴 하지만, 초기화되진않는다.</span>
+</code></pre></div></div>
+
+<p>const 는 블록범위 이며, let과 차이는 상수라는 것이다. 변경할 수 없다. 그리고 const는 선언만 하는 것도 안된다.
+왜냐하면 상수는 할당 연산자를 통해서 값을 할당 할수 없기떄문에 const a; 이런건 안된다!’</p>
+
+<p>하 지 만</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">a</span><span class="o">=</span><span class="mi">3</span> <span class="c1">//이런건 안되는데</span>
+<span class="kd">const</span> <span class="nx">b</span> <span class="o">=</span> <span class="p">{</span> <span class="na">a</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span> 
+<span class="nx">b</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span><span class="mi">5</span> <span class="c1">//이런건 된다. 객체 내부의 속성 값은 변경 할 수 있다.</span>
+
+<span class="kd">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">object</span><span class="p">.</span><span class="nx">freeze</span><span class="p">({</span> <span class="na">a</span><span class="p">:</span><span class="mi">3</span><span class="p">})</span>  <span class="c1">// 오브젝트 프리즈를 이용하면 절대 못바꾸게도 할 수 있다.</span>
+</code></pre></div></div>
+
+<p>이제 드디어 왜 const를 써야하는 지 명 확 하게 알겠다. 끝</p>
+
+  </div></div>
+
+    </section>
+    <footer class="condensed">
+      <ul class="social about-footer condensed"><a href="https://github.com/ingu8349" target="_blank">
+          <li>
+            <i class="icon-github-circled"></i>
+          </li>
+        </a></ul><p class="about-footer condensed">&copy;
+        2023</p><div class="about-footer condensed">
+        <p>Dark Mode
+          <i class="icon-moon"></i>
+          <label class="switch">
+            <input type="checkbox" class="dark-mode-toggle">
+            <span class="slider round" onclick="toggleDarkMode()"></span>
+          </label>
+        </p>
+      </div>
+    </footer>
+  </main>
+  
+  <script type="text/javascript" src="/assets/js/darkmode.js"></script>
+  
+  <script src="/assets/js/simple-jekyll-search.min.js"></script>
+  <script src="/assets/js/search.js"></script>
+  
+</body>
+
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<title>React continue</title>
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>React continue | 인구의 자기계개발</title>
+<meta name="generator" content="Jekyll v4.3.1" />
+<meta property="og:title" content="React continue" />
+<meta name="author" content="GitHub User" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="React 하던 것이어서.." />
+<meta property="og:description" content="React 하던 것이어서.." />
+<link rel="canonical" href="http://localhost:4000/react/jsx/component/2023/01/08/React-continue.html" />
+<meta property="og:url" content="http://localhost:4000/react/jsx/component/2023/01/08/React-continue.html" />
+<meta property="og:site_name" content="인구의 자기계개발" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-01-08T18:45:36+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="React continue" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"GitHub User"},"dateModified":"2023-01-08T18:45:36+09:00","datePublished":"2023-01-08T18:45:36+09:00","description":"React 하던 것이어서..","headline":"React continue","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/react/jsx/component/2023/01/08/React-continue.html"},"url":"http://localhost:4000/react/jsx/component/2023/01/08/React-continue.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<script type="text/javascript" src="/assets/js/darkmode.js"></script>
+
+</head><body>
+  <main class="container">
+    <section class="about">
+      <div class="about-header condensed">
+      <div class="about-title">
+      <a href="/">
+        
+        <img src="/assets/portfolio.png" alt="Ingu Kim" />
+        
+      </a>
+      <h2 id="title">
+        <a href="/">Ingu Kim</a>
+      </h2>
+      </div><p class="tagline">개 발 자</p></div>
+      
+      <ul class="social about-footer condensed"><a href="https://github.com/ingu8349" target="_blank">
+          <li>
+            <i class="icon-github-circled"></i>
+          </li>
+        </a></ul><p class="about-footer condensed">&copy;
+        2023</p><div class="about-footer condensed">
+        <p>Dark Mode
+          <i class="icon-moon"></i>
+          <label class="switch">
+            <input type="checkbox" class="dark-mode-toggle">
+            <span class="slider round" onclick="toggleDarkMode()"></span>
+          </label>
+        </p>
+      </div>
+    </section>
+    <section class="content">
+      <div class="post-container">
+  <a class="post-link" href="/react/jsx/component/2023/01/08/React-continue.html">
+    <h2 class="post-title">React continue</h2>
+  </a>
+  <div class="post-meta">
+    <div class="post-date"><i class="icon-calendar"></i>2023,Jan 8</div><ul class="post-categories"><li>React</li><li>JSX</li><li>Component</li></ul></div>
+  <div class="post">
+    <p>React 하던 것이어서..</p>
+
+<p>JSX 개념잡기</p>
+
+<p>태그가 비어있다면 XML처럼 /&gt; 를 이용해 바로 닫아주어야 합니다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">element</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nx">img</span> <span class="nx">src</span><span class="o">=</span><span class="p">{</span><span class="nx">user</span><span class="p">.</span><span class="nx">avatarUrl</span><span class="p">}</span> <span class="sr">/&gt;</span><span class="err">;
+</span></code></pre></div></div>
+<p>매번 오류가 뜨는 부분이라 확인체크가 필수다.</p>
+
+<p>**기본적으로 React DOM은 JSX에 삽입된 모든 값을 렌더링하기 전에 이스케이프 하므로, 애플리케이션에서 명시적으로 작성되지 않은 내용은 주입되지 않습니다.</p>
+
+<h2 id="jsx는-객체를-표현합니다"><strong>JSX는 객체를 표현합니다.</strong></h2>
+
+<p>Babel은 JSX를 React.createElement() 호출로 컴파일합니다.</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">element</span> <span class="o">=</span> <span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">h1</span> <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">greeting</span><span class="dl">"</span><span class="o">&gt;</span>
+    <span class="nx">Hello</span><span class="p">,</span> <span class="nx">world</span><span class="o">!</span>
+  <span class="o">&lt;</span><span class="sr">/h1</span><span class="err">&gt;
+</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">element</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span>
+    <span class="dl">'</span><span class="s1">h1</span><span class="dl">'</span><span class="p">,</span>
+    <span class="p">{</span><span class="na">className</span><span class="p">:</span> <span class="dl">'</span><span class="s1">greeting</span><span class="dl">'</span><span class="p">},</span>
+    <span class="dl">'</span><span class="s1">Hello, world!</span><span class="dl">'</span>
+<span class="p">);</span>
+
+<span class="c1">// 이 두가지는 같은 내용이다. 참고</span>
+</code></pre></div></div>
+<p>용어 정리 : <br />
+-‘엘리먼트’는 React 앱의 가장 작은 단위입니다. <br />
+-또한 엘리먼트는 컴포넌트의 “구성 요소”이다. <br />
+-React 엘리먼트는 불변객체이다.</p>
+
+<p>===&gt;UI를 업데이트하는 유일한 방법은 새로운 엘리먼트를 생성하고 이를 root.render()로 전달하는 것</p>
+
+<p><strong>“전체 UI를 다시 그리도록 엘리먼트를 만들었지만 React DOM은 내용이 변경된 텍스트 노드만 업데이트한다.”
+=&gt; 리엑트의 핵심내용</strong></p>
+
+<h2 id="주의-컴포넌트의-이름은-항상-대문자로-시작합니다">주의: 컴포넌트의 이름은 항상 대문자로 시작합니다.</h2>
+
+<p>props 관련 내용</p>
+
+<p>**개념적으로 컴포넌트는 JavaScript 함수와 유사합니다. “props”라고 하는 임의의 입력을 받은 후, 화면에 어떻게 표시되는지를 기술하는 React 엘리먼트를 반환합니다. <br /><br />
+**React가 사용자 정의 컴포넌트로 작성한 엘리먼트를 발견하면 JSX 어트리뷰트와 자식을 해당 컴포넌트에 단일 객체로 전달합니다. 이 객체를 “props”라고 합니다.</p>
+
+<h2 id="props는-읽기-전용입니다">props는 읽기 전용입니다.</h2>
+<h2 id="모든-react-컴포넌트는-자신의-props를-다룰-때-반드시-순수-함수처럼-동작해야-합니다">모든 React 컴포넌트는 자신의 props를 다룰 때 반드시 순수 함수처럼 동작해야 합니다.</h2>
+
+  </div></div>
+
+    </section>
+    <footer class="condensed">
+      <ul class="social about-footer condensed"><a href="https://github.com/ingu8349" target="_blank">
+          <li>
+            <i class="icon-github-circled"></i>
+          </li>
+        </a></ul><p class="about-footer condensed">&copy;
+        2023</p><div class="about-footer condensed">
+        <p>Dark Mode
+          <i class="icon-moon"></i>
+          <label class="switch">
+            <input type="checkbox" class="dark-mode-toggle">
+            <span class="slider round" onclick="toggleDarkMode()"></span>
+          </label>
+        </p>
+      </div>
+    </footer>
+  </main>
+  
+  <script type="text/javascript" src="/assets/js/darkmode.js"></script>
+  
+  <script src="/assets/js/simple-jekyll-search.min.js"></script>
+  <script src="/assets/js/search.js"></script>
+  
+</body>
+
+</html>

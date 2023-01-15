@@ -1,15 +1,135 @@
 [
   
     {
-      "title"    : "Integrating razorpay into your webapp",
-      "title-lower"    : "integrating razorpay into your webapp",
+      "title"    : "10진수,2진수, reduce",
+      "title-lower"    : "10진수,2진수, reduce",
       "sub-titile" : "",
       "sub-titile-lower" : "",
-      "categories" : "JavascriptNodeJS",
+      "categories" : "javascript10진수2진수reduceset",
       "tags"     : "",
-      "url"      : "/javascript/nodejs/2019/03/24/welcome-to-jekyll.html",
-      "date"     : "2019-03-24 00:33:36 +0900",
-      "content"     : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ..."
-    }
+      "url"      : "/javascript/10%EC%A7%84%EC%88%98/2%EC%A7%84%EC%88%98/reduce/set/2023/01/15/parseInt-%EC%A7%84%EC%88%98.html",
+      "date"     : "2023-01-15 20:10:03 +0900",
+      "content"     : "reduce, set과 진수변환에 대해 알아보려고 한다.일단 진수같은 경우는 보통 우리가 10진수를 사용해서,, 컴퓨터는 2진수를 사용한다!라는 말을듣는 것 외에는 실상 쓸일이 없는데, 코딩테스트를 접해보니.. 은근 10진수에서 2진수변환, 2진수에서 10진수 변환이런걸 접할일이 많은 것을 알고, 찾아본 다음 정리해본다.우선 먼저 이미 알고있었 던 1..."
+    } ,
+  
+    {
+      "title"    : "substring, slice 알아보기",
+      "title-lower"    : "substring, slice 알아보기",
+      "sub-titile" : "",
+      "sub-titile-lower" : "",
+      "categories" : "javascriptsubstringslice",
+      "tags"     : "",
+      "url"      : "/javascript/substring/slice/2023/01/12/substring-slice.html",
+      "date"     : "2023-01-12 22:10:03 +0900",
+      "content"     : "Javascript에서 substring(), slice() 함수는 모두 문자열을 잘라주는 역할을 한다.substring에 대해 알아본다.오늘 코드테스트 예문을 푸는데 내가 했던 방식 말고 ,substring를 써서쉽게 답이 나왔던 코드가 있었는데, substring를 몰라 쏟아부은 시간이 꽤나있어서,substring를 기억하고서 다음에 써먹으면 유용..."
+    } ,
+  
+    {
+      "title"    : "split(), indexOf() 정확하게 알기",
+      "title-lower"    : "split(), indexof() 정확하게 알기",
+      "sub-titile" : "",
+      "sub-titile-lower" : "",
+      "categories" : "javascriptsplitindexOf",
+      "tags"     : "",
+      "url"      : "/javascript/split/indexof/2023/01/11/javascript-split.html",
+      "date"     : "2023-01-11 21:35:36 +0900",
+      "content"     : "javascript 그 중에서도 split, indexOf 제대로 알기코딩테스트 연습을 쭉해오다 보니 꽤나 자주 사용되는 것 중 하나인 split, indexOfstring.split(separator, limit)split() 함수는 문자열을 ‘separator’로 잘라서, ‘limit’ 크기 이하의 배열에 잘라진 문자열을 저장하여 리턴한다.  se..."
+    } ,
+  
+    {
+      "title"    : "useRef",
+      "title-lower"    : "useref",
+      "sub-titile" : "",
+      "sub-titile-lower" : "",
+      "categories" : "useRefreactHook",
+      "tags"     : "",
+      "url"      : "/useref/reacthook/2023/01/10/useRef.html",
+      "date"     : "2023-01-10 22:45:36 +0900",
+      "content"     : "useRef 배워보기//함수형 컴포넌트에서 useRef를 부르면 ref 오브젝트를 반환해준다.const ref = useRef(value)ref = { current:value } // ref는 이렇게 생겼다.반환된 Ref는 컴포넌트의 전 생애주기를 통해 유지가 된다.컴포넌트가 계속해서 렌더링이 되어도 언마운트되기 전까지는 값을 계속 유지한다.대표적 ..."
+    } ,
+  
+    {
+      "title"    : "useContext, context Api 배워보기",
+      "title-lower"    : "usecontext, context api 배워보기",
+      "sub-titile" : "",
+      "sub-titile-lower" : "",
+      "categories" : "useContextcontextApi",
+      "tags"     : "",
+      "url"      : "/usecontext/contextapi/2023/01/09/useContext.html",
+      "date"     : "2023-01-09 22:35:36 +0900",
+      "content"     : "useContext 배워보기그간 reactHook을 꽤나 많이 써봤지만 useState, useEffect, useMemo, useCallback 외에useContext의 존재에 대해 알게 되었다. + context Api다른 것들을 유용하게 써왔으니, 이것에 대해도 알아보려고 한다.context는 앱 안에서 전역적으로 사용되는 데이터들을 여러 컴포넌..."
+    } ,
+  
+    {
+      "title"    : "React continue",
+      "title-lower"    : "react continue",
+      "sub-titile" : "",
+      "sub-titile-lower" : "",
+      "categories" : "ReactJSXComponent",
+      "tags"     : "",
+      "url"      : "/react/jsx/component/2023/01/08/React-continue.html",
+      "date"     : "2023-01-08 18:45:36 +0900",
+      "content"     : "React 하던 것이어서..JSX 개념잡기태그가 비어있다면 XML처럼 /&amp;gt; 를 이용해 바로 닫아주어야 합니다.const element = &amp;lt;img src={user.avatarUrl} /&amp;gt;;매번 오류가 뜨는 부분이라 확인체크가 필수다.**기본적으로 React DOM은 JSX에 삽입된 모든 값을 렌더링하기 전에 이스..."
+    } ,
+  
+    {
+      "title"    : "this와 바인드",
+      "title-lower"    : "this와 바인드",
+      "sub-titile" : "",
+      "sub-titile-lower" : "",
+      "categories" : "thisbind",
+      "tags"     : "",
+      "url"      : "/this/bind/2023/01/07/this-bind.html",
+      "date"     : "2023-01-07 18:45:36 +0900",
+      "content"     : "this와 바인드this는 함수를 호출한 객체이다.말이 겁나게 어렵다.,일단 함수외부에서, 전역적인 문맥에서 this를 접근하면 Window의 객체를 나타낸다.‘use strict’ 엄격 모드에서도 window의 객체가 나타난다.함수 내부에서의 thisfunction main () {    console.log(this) // window의 객체}//..."
+    } ,
+  
+    {
+      "title"    : "React useEffect와 변수 선언",
+      "title-lower"    : "react useeffect와 변수 선언",
+      "sub-titile" : "",
+      "sub-titile-lower" : "",
+      "categories" : "ReactuseEffectvarletconst",
+      "tags"     : "",
+      "url"      : "/react/useeffect/var/let/const/2023/01/07/useEffect-var-let-const.html",
+      "date"     : "2023-01-07 18:45:36 +0900",
+      "content"     : "React useEffect &amp;amp; 변수선언용어 정리마운트 - 화면에 첫 렌더링 업데이트 - 다시 렌더링 언마운트 - 화면에서 사라짐 으로 이해하면 좋을 것 같다.** useEffect의 3가지 형태useEffect(()=&amp;gt;{    // 작업    })// 렌더링 될 때 마다 실행된다.useEffect(()=&amp;gt;{  ..."
+    } ,
+  
+    {
+      "title"    : "React 이어서 useMemo, useCallback",
+      "title-lower"    : "react 이어서 usememo, usecallback",
+      "sub-titile" : "",
+      "sub-titile-lower" : "",
+      "categories" : "ReactuseMemouseCallback",
+      "tags"     : "",
+      "url"      : "/react/usememo/usecallback/2023/01/05/React-continue-usememo-usecallback.html",
+      "date"     : "2023-01-05 21:55:36 +0900",
+      "content"     : "몰랐던 useMemo, useCallback 그리고 React 이어서    useMemo먼저    이해한대로 쓰면 불필요하게 계속 반복적으로 쓰이는 낭비를 줄이기 위해 useMemo로 저장해놓고서    저장해놓은 데이터를 쓴다~ 이런 내용이다.        매번 렌더링이 왜이렇게 많이되나 했는데, //내가 맨날 보는function A(){    con..."
+    } ,
+  
+    {
+      "title"    : "React 시작",
+      "title-lower"    : "react 시작",
+      "sub-titile" : "",
+      "sub-titile-lower" : "",
+      "categories" : "ReactJSXComponent",
+      "tags"     : "",
+      "url"      : "/react/jsx/component/2023/01/04/React-start.html",
+      "date"     : "2023-01-04 20:55:36 +0900",
+      "content"     : "React 문서보기 시작    React는 별도의 파일에 마크업과 로직을 넣어 기술을 인위적으로 분리하는 대신, 둘 다 포함하는 “컴포넌트”라고 부르는 느슨하게 연결된 유닛으로 관심사를 분리합니다    JSX의 중괄호 안에는 유효한 모든 JavaScript 표현식을 넣을 수 있습니다. 예를 들어 2 + 2, user.firstName 또는 format..."
+    } ,
+  
+    {
+      "title"    : "첫번째 포스팅",
+      "title-lower"    : "첫번째 포스팅",
+      "sub-titile" : "",
+      "sub-titile-lower" : "",
+      "categories" : "DiaryStartFirst",
+      "tags"     : "",
+      "url"      : "/diary/start/first/2023/01/03/getting-start-vue.html",
+      "date"     : "2023-01-03 22:55:36 +0900",
+      "content"     : "시작기대된다. 앞으로 채워나갈 나의 개발 포스팅들    일단 오늘은 Switch, case에 대해 써봤다.    아는 내용이지만, 써먹지 않으면 모르는거나 다름 없었다.    클린하게 코드를 쓰는게 중요하다는 걸 다시금 깨우침// 내가 짠 코드 const maxDate = reservationLimitType == &quot;DAY&quot; ? ad..."
+    } 
   
 ]

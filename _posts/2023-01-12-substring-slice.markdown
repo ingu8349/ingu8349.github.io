@@ -2,7 +2,7 @@
 layout: post
 title:  "substring, slice 알아보기"
 date:   2023-01-12 22:10:03 +0900
-categories: javascript substring slice
+categories: javascript substring slice 
 ---
 Javascript에서 substring(), slice() 함수는 모두 문자열을 잘라주는 역할을 한다.
 substring에 대해 알아본다.

@@ -1,0 +1,99 @@
+---
+layout: post
+title:  "10진수,2진수, reduce"
+date:   2023-01-15 20:10:03 +0900
+categories: javascript 10진수 2진수 reduce set
+---
+reduce, set과 진수변환에 대해 알아보려고 한다.
+
+일단 진수같은 경우는 보통 우리가 10진수를 사용해서,, 컴퓨터는 2진수를 사용한다!라는 말을
+듣는 것 외에는 실상 쓸일이 없는데, 코딩테스트를 접해보니.. 은근 10진수에서 2진수변환, 2진수에서 10진수 변환
+이런걸 접할일이 많은 것을 알고, 찾아본 다음 정리해본다.
+
+우선 먼저 이미 알고있었 던 10진수에서 2진수로의 변환
+
+기존 toString()을 이용하면 쉽게 할 수 있었다.
+## The toString() 은 문자열을 반환하는 object의 대표적인 방법이다
+
+```javascript
+function Dog(name) {
+  this.name = name;
+}
+const dog1 = new Dog('Gabby');
+// 객체 지향 프로그래밍..ㅋㅋㅋㅋ
+Dog.prototype.toString = function dogToString() {
+  return `${this.name}`;
+};
+console.log(dog1.toString());
+// Expected output: "Gabby"
+// 이런식으로 이해할 수 있다. 
+```
+그냥 나는 타입을 string으로 바꿔주는걸로 이해하고 있다.
+```javascript
+const a = 32313213 // 이런 숫자가 있다고 보자.
+//이럴경우 형태가 숫자라 문자열이 아니기 때문에 split()함수를 쓸 수가 없었다. 
+// 그래서 a.toString()으로 형태를 바꾸고 사용해야 했던 기억이 있다.
+```
+
+아무튼 이렇게도 사용하지만 
+```javascript
+//10진수로 구성된 10, 101 이런걸 2진수로 바꿔서 문제를 풀어야 했던 게 기억이 난다. 그럴 경우
+let baseTenInt = 10;
+console.log(baseTenInt.toString(2));
+// "1010"이 출력이 된다. 이렇게 간단하게 바꿀 수 있다.
+```
+
+이제 반대로 2진수를 10진수로 바꿔야 하는 경우는
+## parseInt를 쓰면 된다. 자주보는데 명확히 하고 가야지.
+parseInt() 함수는 문자열 인자를 파싱하여 특정 진수(수의 진법 체계에서 기준이 되는 값)의 정수를 반환한다..
+```javascript
+parseInt(string, radix);
+// string - 숫자로 변환할 문자열
+// radix 
+// - optional
+// - string 문자열을 읽을 진법(수의 진법 체계의 진법)
+// - 2~36의 수
+
+//예시를 보면
+document.writeln(parseInt("10")); // 10
+document.writeln(parseInt("-10")); // -10
+document.writeln(parseInt("10.9")); // 10
+//이렇게 기본적으로 쓸 수도 있고, 앞서 말한 진수 관련해서는
+document.writeln(parseInt("10", 2)); // 2
+document.writeln(parseInt("2", 2)); // NaN
+// 이렇게 간단히 10진수 숫자를 2진수로 바꿀 수 있다.
+```
+
+2번째로는 배열에서 중복을 제거하는 데 필요한 걸 알아보다가 알게된 Set()과 reduce()
+
+먼저 Set()은 중복 데이터 저장을 허용하지 않는 자료구조이며. 
+이 특성을 이용하여 배열의 모든 요소를 Set에 추가하면 중복이 저절로 제거가 되는 아주,,고마운 놈이다.
+new Set(arr)는 배열의 데이터가 추가된 Set 객체가 생성되며, 중복은 허용되지 않기 때문에 1개의 요소만 추가되고,
+Set를 Array로 변경할 때는 Spread operator를 이용하면 [...set]처럼 간단하게 변환할 수 있다.
+
+```javascript
+const arr = ['1', '2', '3', '1', '2'];
+const set = new Set(arr); // 콘솔찍어보면 Set(3) { '1', '2', '3' }
+const newArr = [...set];
+console.log(newArr) // [1,2,3] 이며
+
+// 추가로
+const arr = ['1', '2', '3', '1', '2'];
+const newArr = Array.from(new Set(arr));
+console.log(newArr) // 이런식으로 from을 써도 값을 같다. 어렵구만..
+```
+
+2번째로는 reduce
+## reduce()는 배열 요소의 값들을 순차적으로 순회하면서 하나의 값을 만드는 함수이며. 
+초기값 initialValue가 주어지면, 배열의 0번 index부터 연산을 수행하고, 그 결과를 다음 연산의 인자(accumulator)로 전달한다.
+
+이게 무슨 말이냐면, 일단 키포인트는 reduce는 함수를 인자로 받는다. 기억하자.
+```javascript
+const arr = ['1', '2', '3', '4', '5'];
+const reducer = (acc, value) => {acc + value} // acc는 합산값, value는 배열인자
+arr.reduce(reducer) // 15가 나온다.
+//만약
+arr.reduce(reducer, 10) // 이러면 acc 부문이 10이되고 답은 25가 나온다.
+```
+
+흠 reduce같은 경우 꽤나 자주 봤었는데 앞으로 더 쓰면서 애용해봐야겠다.
