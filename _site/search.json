@@ -1,6 +1,18 @@
 [
   
     {
+      "title"    : "useReducer에 대해 알아보자",
+      "title-lower"    : "usereducer에 대해 알아보자",
+      "sub-titile" : "",
+      "sub-titile-lower" : "",
+      "categories" : "ReacthookuseReducer",
+      "tags"     : "",
+      "url"      : "/react/hook/usereducer/2023/01/15/useReducer.html",
+      "date"     : "2023-01-15 22:00:03 +0900",
+      "content"     : "useReducer 알아보기꽤나 많은 React Hook에 대해 알아봤는데, 통상 내가 useState 나 useEffect를 많이 사용했는데,오늘은 useReducer에 대해서 좀 깊게 파보려고 한다. 부디 어렵지 않았으면..여러개의 하위 값을 가지는 state를 다뤄야 할때 useReducer을 쓰면 효과적이다!아예 대놓고 공식문서에 useStat..."
+    } ,
+  
+    {
       "title"    : "Spread Opertor",
       "title-lower"    : "spread opertor",
       "sub-titile" : "",
