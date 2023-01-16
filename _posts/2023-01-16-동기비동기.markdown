@@ -2,7 +2,7 @@
 layout: post
 title:  "동기 / 비동기의 늪"
 date:   2023-01-15 22:00:03 +0900
-categories: React hook useReducer 
+categories: javascript 동기 비동기 promise async await 
 ---
 
 동기 / 비동기 알기
