@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<title>CSR SSR</title>
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>CSR SSR | 인구의 자기계개발</title>
+<meta name="generator" content="Jekyll v4.3.1" />
+<meta property="og:title" content="CSR SSR" />
+<meta name="author" content="GitHub User" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="한번도 안들어보진 않았지만, 명확히 몰랐던 CSR, SSR" />
+<meta property="og:description" content="한번도 안들어보진 않았지만, 명확히 몰랐던 CSR, SSR" />
+<link rel="canonical" href="http://localhost:4000/csr/ssr/2023/01/25/html.html" />
+<meta property="og:url" content="http://localhost:4000/csr/ssr/2023/01/25/html.html" />
+<meta property="og:site_name" content="인구의 자기계개발" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-01-25T22:40:03+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="CSR SSR" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"GitHub User"},"dateModified":"2023-01-25T22:40:03+09:00","datePublished":"2023-01-25T22:40:03+09:00","description":"한번도 안들어보진 않았지만, 명확히 몰랐던 CSR, SSR","headline":"CSR SSR","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/csr/ssr/2023/01/25/html.html"},"url":"http://localhost:4000/csr/ssr/2023/01/25/html.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<script type="text/javascript" src="/assets/js/darkmode.js"></script>
+
+</head><body>
+  <main class="container">
+    <section class="about">
+      <div class="about-header condensed">
+      <div class="about-title">
+      <a href="/">
+        
+        <img src="/assets/portfolio.png" alt="Ingu Kim" />
+        
+      </a>
+      <h2 id="title">
+        <a href="/">Ingu Kim</a>
+      </h2>
+      </div><p class="tagline">개 발 자</p></div>
+      
+      <ul class="social about-footer condensed"><a href="https://github.com/ingu8349" target="_blank">
+          <li>
+            <i class="icon-github-circled"></i>
+          </li>
+        </a></ul><p class="about-footer condensed">&copy;
+        2023</p><div class="about-footer condensed">
+        <p>Dark Mode
+          <i class="icon-moon"></i>
+          <label class="switch">
+            <input type="checkbox" class="dark-mode-toggle">
+            <span class="slider round" onclick="toggleDarkMode()"></span>
+          </label>
+        </p>
+      </div>
+    </section>
+    <section class="content">
+      <div class="post-container">
+  <a class="post-link" href="/csr/ssr/2023/01/25/html.html">
+    <h2 class="post-title">CSR SSR</h2>
+  </a>
+  <div class="post-meta">
+    <div class="post-date"><i class="icon-calendar"></i>2023,Jan 25</div><ul class="post-categories"><li>CSR</li><li>SSR</li></ul></div>
+  <div class="post">
+    <p>한번도 안들어보진 않았지만, 명확히 몰랐던 CSR, SSR</p>
+
+<p>오늘은 이것에 대해 오랜만에 포스팅을 하려고한다.</p>
+
+<p>CSR보다 먼저 SSR은 내가 처음에 알고있는 얕은 지식으로는 페이지가 렌더링 되기 맨~처음에
+딱 한번 데이터를 불러온다? 정도의 개념으로 알고 있었는데, 이번 계기를 통해서 제대로 알아보려한다.
+먼저… 맨날쓰는 렌더링이란 단어의 뜻부터 명확히 알고가자.</p>
+
+<h2 id="렌더링이란-서버로부터-요청해서-받은-내용을-브라우저-화면에-표시해주는-것이다">렌더링이란, 서버로부터 요청해서 받은 내용을 브라우저 화면에 표시해주는 것이다.</h2>
+
+<p>CSR, SSR의 가장 큰 차이는 쉽게 설명하면, 표시해줄 화면을 어디에서, 어떻게 그리느냐의 차이가 있다.</p>
+
+<h2 id="csr---client-side-rendering">CSR - Client Side Rendering</h2>
+
+<p>클라이언트 사이드 렌더링이란 쉽게.. 클라이언트 측에서 다 해먹는 걸 말한다.</p>
+<ul>
+  <li>
+    <p>서버에서 전체 페이지를 한 번에 렌더링해서 보여주고, 사용자의 요청에 따라 그때 그때 리소스를 서버에서 제공받아, 클라이언트가 해석하고 렌더링 하는 방식이다.</p>
+  </li>
+  <li>CSR의 단점</li>
+  <li>사용자가 첫 화면을 보기까지 오래 걸릴 수도 있다.</li>
+  <li>썩 좋지 않은 SEO를 꼽을 수있다. - 처음에 텅텅비어있어서 검색엔진들이 브라우징하는데 어려움이 생길 수 있다.
+(여기서 SEO란 검색엔진 최적화)</li>
+</ul>
+
+<p>그래서 나온게 SSR!</p>
+<h2 id="ssr---server-side-rendering">SSR - Server Side Rendering</h2>
+
+<p>서버 사이드 렌더링은 클라이언트 측에서 모든 걸 다 처리하지 않고, 웹사이트에 접속할 때 서버에서 필요한 데이터를
+모두 가져와서 HTML파일을 만들게 되고, 만들어진 HTML과 HTML파일을 동적으로 제어할 수 있는 소스코드와 함께 클라이언트에게 보낸다.</p>
+
+<ul>
+  <li>그래서 페이지 로딩이 빨라지고, 효율적인 SEO가 가능하다.</li>
+</ul>
+
+<p>하지만 SSR도 단점은 있다.</p>
+
+<ul>
+  <li>먼저 서버가 과부하 걸릴 수 있다.</li>
+  <li>또한 새로고침 이슈도 있다고 한다. blinking issue 라고한다. 유식하게</li>
+  <li>ttv 와 tti 이슈가 있다.</li>
+</ul>
+
+<p>여기서 ttv는 time to view  사용자가 보는 것과
+tti - time to interaction 사용자의 행동에 반응에하는 것으로 생각하면 되는데,</p>
+
+<p>서버사이드 렌더링은 이미 view는 할 수 있지만, 서버에서 자바스크립트 파일을 받아와야지만, 클릭 같은
+이벤트를 실행할 수 있으므로, 서버에서 받아오는 시간에 따라 보기만 보여지고 행동하지 않을 수 있는 단점이 있다.</p>
+
+<p>결론은 둘다 알아둬야한다. 둘 중에 뭐가 더 좋다는 개념이 아니라, 둘다 필요할 때가 있다.</p>
+
+  </div></div>
+
+    </section>
+    <footer class="condensed">
+      <ul class="social about-footer condensed"><a href="https://github.com/ingu8349" target="_blank">
+          <li>
+            <i class="icon-github-circled"></i>
+          </li>
+        </a></ul><p class="about-footer condensed">&copy;
+        2023</p><div class="about-footer condensed">
+        <p>Dark Mode
+          <i class="icon-moon"></i>
+          <label class="switch">
+            <input type="checkbox" class="dark-mode-toggle">
+            <span class="slider round" onclick="toggleDarkMode()"></span>
+          </label>
+        </p>
+      </div>
+    </footer>
+  </main>
+  
+  <script type="text/javascript" src="/assets/js/darkmode.js"></script>
+  
+  <script src="/assets/js/simple-jekyll-search.min.js"></script>
+  <script src="/assets/js/search.js"></script>
+  
+</body>
+
+</html>

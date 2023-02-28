@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<title>정규표현식 regex</title>
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>정규표현식 regex | 인구의 자기계개발</title>
+<meta name="generator" content="Jekyll v4.3.1" />
+<meta property="og:title" content="정규표현식 regex" />
+<meta name="author" content="GitHub User" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="정규표현식 aka regex에 대해 알아보자." />
+<meta property="og:description" content="정규표현식 aka regex에 대해 알아보자." />
+<link rel="canonical" href="http://localhost:4000/%EC%A0%95%EA%B7%9C%ED%91%9C%ED%98%84%EC%8B%9D/regex/regularexpression/2023/01/18/regular-expression.html" />
+<meta property="og:url" content="http://localhost:4000/%EC%A0%95%EA%B7%9C%ED%91%9C%ED%98%84%EC%8B%9D/regex/regularexpression/2023/01/18/regular-expression.html" />
+<meta property="og:site_name" content="인구의 자기계개발" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-01-18T22:00:03+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="정규표현식 regex" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"GitHub User"},"dateModified":"2023-01-18T22:00:03+09:00","datePublished":"2023-01-18T22:00:03+09:00","description":"정규표현식 aka regex에 대해 알아보자.","headline":"정규표현식 regex","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/%EC%A0%95%EA%B7%9C%ED%91%9C%ED%98%84%EC%8B%9D/regex/regularexpression/2023/01/18/regular-expression.html"},"url":"http://localhost:4000/%EC%A0%95%EA%B7%9C%ED%91%9C%ED%98%84%EC%8B%9D/regex/regularexpression/2023/01/18/regular-expression.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<script type="text/javascript" src="/assets/js/darkmode.js"></script>
+
+</head><body>
+  <main class="container">
+    <section class="about">
+      <div class="about-header condensed">
+      <div class="about-title">
+      <a href="/">
+        
+        <img src="/assets/portfolio.png" alt="Ingu Kim" />
+        
+      </a>
+      <h2 id="title">
+        <a href="/">Ingu Kim</a>
+      </h2>
+      </div><p class="tagline">개 발 자</p></div>
+      
+      <ul class="social about-footer condensed"><a href="https://github.com/ingu8349" target="_blank">
+          <li>
+            <i class="icon-github-circled"></i>
+          </li>
+        </a></ul><p class="about-footer condensed">&copy;
+        2023</p><div class="about-footer condensed">
+        <p>Dark Mode
+          <i class="icon-moon"></i>
+          <label class="switch">
+            <input type="checkbox" class="dark-mode-toggle">
+            <span class="slider round" onclick="toggleDarkMode()"></span>
+          </label>
+        </p>
+      </div>
+    </section>
+    <section class="content">
+      <div class="post-container">
+  <a class="post-link" href="/%EC%A0%95%EA%B7%9C%ED%91%9C%ED%98%84%EC%8B%9D/regex/regularexpression/2023/01/18/regular-expression.html">
+    <h2 class="post-title">정규표현식 regex</h2>
+  </a>
+  <div class="post-meta">
+    <div class="post-date"><i class="icon-calendar"></i>2023,Jan 18</div><ul class="post-categories"><li>정규표현식</li><li>regex</li><li>regularExpression</li></ul></div>
+  <div class="post">
+    <p>정규표현식 aka regex에 대해 알아보자.</p>
+
+<p>코드작성을 할 때 간혹 보였었던 regex는 정규표현식의 줄임말이다.
+보통 이전에 form 안에서 이메일? 전화번호 같은 간단한거의 validate를 할 떄 잠깐 발을 담궜던 기억이 있는데,
+이제 이것에 대해 한번 제대로 알아보려 한다.</p>
+
+<ul>
+  <li>기본적으로 / / slash 안에 우리가 기본적으로 찾으려는 pattern을 입력해주면 되고,</li>
+  <li>또한 // i &lt;= 어떤 flag를 이용해서 검색할건지 정해주면 된다. 보편적으로는 g - global과 m - multiline을 이용한다.</li>
+</ul>
+
+<h1 id="groups-and-ranges">GROUPS and RANGES</h1>
+
+<p>Character	뜻</p>
+<ul>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>또는</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>()	그룹</li>
+  <li>[]	문자셋, 괄호안의 어떤 문자든</li>
+  <li>[^]	부정 문자셋, 괄호안의 어떤 문가 아닐때</li>
+  <li>(?:)	찾지만 기억하지는 않음</li>
+</ul>
+
+<h2 id="quantifiers">Quantifiers</h2>
+<p>Character	뜻</p>
+<ul>
+  <li>?	없거나 있거나 (zero or one)</li>
+  <li>
+    <ul>
+      <li>없거나 있거나 많거나 (zero or more)</li>
+    </ul>
+  </li>
+  <li>
+    <ul>
+      <li>하나 또는 많이 (one or more)</li>
+    </ul>
+  </li>
+  <li>{n}	n번 반복</li>
+  <li>{min,}	최소</li>
+  <li>{min,max}	최소, 그리고 최대</li>
+</ul>
+
+<h2 id="boundary-type">Boundary-type</h2>
+<ul>
+  <li>Character	뜻</li>
+  <li>\b	단어 경계</li>
+  <li>\B	단어 경계가 아님</li>
+  <li>^	문장의 시작</li>
+  <li>$	문장의 끝</li>
+</ul>
+
+<h2 id="character-classes">Character classes</h2>
+<ul>
+  <li>Character	뜻</li>
+  <li>\	특수 문자가 아닌 문자</li>
+  <li>.	어떤 글자 (줄바꿈 문자 제외)</li>
+  <li>\d	digit 숫자</li>
+  <li>\D	digit 숫자 아님</li>
+  <li>\w	word 문자</li>
+  <li>\W	word 문자 아님</li>
+  <li>\s	space 공백</li>
+  <li>\S	space 공백 아님</li>
+</ul>
+
+<p>이런식으로 종류가 많은데 강의를 몇개 들어보니 다 외울필요 없이 그때 그떄 필요한걸 찾아쓰는게 나을거같다.</p>
+
+<h2 id="javascript에서-정규-표현식-사용하기">JavaScript에서 정규 표현식 사용하기</h2>
+<p>이제 regex와 함께 쓰는 메서드 들을 알아보려는데 저번에 본 2가지를 정리한다.</p>
+
+<ul>
+  <li>match()	- 캡처 그룹을 포함해서 모든 일치를 담은 배열을 반환합니다. 일치가 없으면 null을 반환합니다.</li>
+  <li>test() - 문자열에 일치하는 부분이 있는지 확인합니다. true 또는 false를 반환합니다.</li>
+  <li>search()	문자열에서 일치하는 부분을 탐색합니다. 일치하는 부분의 인덱스, 또는 일치가 없는 경우 -1을 반환합니다.</li>
+  <li>replace()	문자열에서 일치하는 부분을 탐색하고, 그 부분을 대체 문자열로 바꿉니다.</li>
+</ul>
+
+<p>이정도 외우둬면 좋을 것 같다.</p>
+
+<p>또!
+자주쓰는 표현식</p>
+<ul>
+  <li>이메일 - /^<a href="[-_\.]?[0-9a-zA-Z]">0-9a-zA-Z</a><em>@<a href="[-_\.]?[0-9a-zA-Z]">0-9a-zA-Z</a></em>.[a-zA-Z]{2,3}$/i</li>
+  <li>전화번호 - /^\d{3}-\d{3,4}-\d{4}$/</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>핸드폰 번호 - /^01([0</td>
+          <td>1</td>
+          <td>6</td>
+          <td>7</td>
+          <td>8</td>
+          <td>9]?)-?([0-9]{3,4})-?([0-9]{4})$/</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>URL - ^(https?):\/\/([^:\/\s]+)(:([^\/]<em>))?((\/[^\s/\/]+)</em>)?\/?([^#\s\?]<em>)(\?([^#\s]</em>))?(#(\w*))?$</li>
+</ul>
+
+<p>끝!</p>
+
+  </div></div>
+
+    </section>
+    <footer class="condensed">
+      <ul class="social about-footer condensed"><a href="https://github.com/ingu8349" target="_blank">
+          <li>
+            <i class="icon-github-circled"></i>
+          </li>
+        </a></ul><p class="about-footer condensed">&copy;
+        2023</p><div class="about-footer condensed">
+        <p>Dark Mode
+          <i class="icon-moon"></i>
+          <label class="switch">
+            <input type="checkbox" class="dark-mode-toggle">
+            <span class="slider round" onclick="toggleDarkMode()"></span>
+          </label>
+        </p>
+      </div>
+    </footer>
+  </main>
+  
+  <script type="text/javascript" src="/assets/js/darkmode.js"></script>
+  
+  <script src="/assets/js/simple-jekyll-search.min.js"></script>
+  <script src="/assets/js/search.js"></script>
+  
+</body>
+
+</html>

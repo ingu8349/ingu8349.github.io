@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<title>some과 every</title>
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>some과 every | 인구의 자기계개발</title>
+<meta name="generator" content="Jekyll v4.3.1" />
+<meta property="og:title" content="some과 every" />
+<meta name="author" content="GitHub User" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="some과 every에 대해 알아보자" />
+<meta property="og:description" content="some과 every에 대해 알아보자" />
+<link rel="canonical" href="http://localhost:4000/javascript/some/every/2023/01/15/some%EA%B3%BC-every.html" />
+<meta property="og:url" content="http://localhost:4000/javascript/some/every/2023/01/15/some%EA%B3%BC-every.html" />
+<meta property="og:site_name" content="인구의 자기계개발" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-01-15T22:00:03+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="some과 every" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"GitHub User"},"dateModified":"2023-01-15T22:00:03+09:00","datePublished":"2023-01-15T22:00:03+09:00","description":"some과 every에 대해 알아보자","headline":"some과 every","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/javascript/some/every/2023/01/15/some%EA%B3%BC-every.html"},"url":"http://localhost:4000/javascript/some/every/2023/01/15/some%EA%B3%BC-every.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<script type="text/javascript" src="/assets/js/darkmode.js"></script>
+
+</head><body>
+  <main class="container">
+    <section class="about">
+      <div class="about-header condensed">
+      <div class="about-title">
+      <a href="/">
+        
+        <img src="/assets/portfolio.png" alt="Ingu Kim" />
+        
+      </a>
+      <h2 id="title">
+        <a href="/">Ingu Kim</a>
+      </h2>
+      </div><p class="tagline">개 발 자</p></div>
+      
+      <ul class="social about-footer condensed"><a href="https://github.com/ingu8349" target="_blank">
+          <li>
+            <i class="icon-github-circled"></i>
+          </li>
+        </a></ul><p class="about-footer condensed">&copy;
+        2023</p><div class="about-footer condensed">
+        <p>Dark Mode
+          <i class="icon-moon"></i>
+          <label class="switch">
+            <input type="checkbox" class="dark-mode-toggle">
+            <span class="slider round" onclick="toggleDarkMode()"></span>
+          </label>
+        </p>
+      </div>
+    </section>
+    <section class="content">
+      <div class="post-container">
+  <a class="post-link" href="/javascript/some/every/2023/01/15/some%EA%B3%BC-every.html">
+    <h2 class="post-title">some과 every</h2>
+  </a>
+  <div class="post-meta">
+    <div class="post-date"><i class="icon-calendar"></i>2023,Jan 15</div><ul class="post-categories"><li>javascript</li><li>some</li><li>every</li></ul></div>
+  <div class="post">
+    <p>some과 every에 대해 알아보자</p>
+
+<p>굉장히 생소했지만, 오늘 일하는 도중 보게 된 some 때문에 궁금증이 생겨서 찾아봤고,
+이렇게 기록해두면 또 써먹을 일이 있을 것같아 포스팅한다. 내용이 길지는 않을 것 같다.</p>
+
+<p>참고로 둘다 배열에서 쓴다. 알아두자</p>
+
+<p>먼저</p>
+<h2 id="every함수">every함수</h2>
+
+<ul>
+  <li>every()는 배열의 각 엘리먼트에 대해서 테스트 함수의 반환 값이 모두 true인지 확인합니다.</li>
+  <li>알기 쉽게 어떤조건을 걸었을 때 다 true일때만 true를 반환하고 하나라도 아닐떈 false를 반환하는 얄짤 없는 함수다.</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">objArr</span> <span class="o">=</span> <span class="p">[{</span><span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">a</span><span class="dl">'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">10</span><span class="p">},</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">b</span><span class="dl">'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">100</span><span class="p">},</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">c</span><span class="dl">'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">5</span><span class="p">}]</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">objArr</span><span class="p">.</span><span class="nx">every</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span><span class="o">=&gt;</span> <span class="nx">item</span><span class="p">.</span><span class="nx">age</span><span class="o">&gt;</span><span class="mi">5</span><span class="p">));</span> <span class="c1">//false, C때매 false다</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">objArr</span><span class="p">.</span><span class="nx">every</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span><span class="o">=&gt;</span> <span class="nx">item</span><span class="p">.</span><span class="nx">age</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">));</span> <span class="c1">//true</span>
+</code></pre></div></div>
+
+<p>이해하기 쉽다.</p>
+
+<p>두번째로</p>
+<h2 id="some함수">some함수</h2>
+<p>오늘따라 내꺼인듯 내꺼아닌. 미안하다 다시 공부로</p>
+
+<ul>
+  <li>some()은 배열의 각 엘리먼트에 대해서 테스트 함수의 반환 값이 하나라도 true가 있는지 확인한다.</li>
+  <li>그래서 하나라도 있으면 true 진짜 하나도 없으면 false를 반환한다.</li>
+  <li>every는 얄짤없는 놈 some은 느슨한 놈으로 이해하면 될거같다.</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">objArr</span> <span class="o">=</span> <span class="p">[{</span><span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">a</span><span class="dl">'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">10</span><span class="p">},</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">b</span><span class="dl">'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">100</span><span class="p">},</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">c</span><span class="dl">'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">5</span><span class="p">}]</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">objArr</span><span class="p">.</span><span class="nx">some</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span><span class="o">=&gt;</span> <span class="nx">item</span><span class="p">.</span><span class="nx">age</span><span class="o">&gt;</span><span class="mi">5</span><span class="p">));</span> <span class="c1">//true</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">objArr</span><span class="p">.</span><span class="nx">some</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span><span class="o">=&gt;</span> <span class="nx">item</span><span class="p">.</span><span class="nx">age</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">));</span> <span class="c1">//false</span>
+</code></pre></div></div>
+
+<p>흠..동기 비동기하다가 이거보니 안구가 정화된다.</p>
+
+<p>내일 실제 코드에 써져있는거 왜썻는지 봐야징 안녕</p>
+
+  </div></div>
+
+    </section>
+    <footer class="condensed">
+      <ul class="social about-footer condensed"><a href="https://github.com/ingu8349" target="_blank">
+          <li>
+            <i class="icon-github-circled"></i>
+          </li>
+        </a></ul><p class="about-footer condensed">&copy;
+        2023</p><div class="about-footer condensed">
+        <p>Dark Mode
+          <i class="icon-moon"></i>
+          <label class="switch">
+            <input type="checkbox" class="dark-mode-toggle">
+            <span class="slider round" onclick="toggleDarkMode()"></span>
+          </label>
+        </p>
+      </div>
+    </footer>
+  </main>
+  
+  <script type="text/javascript" src="/assets/js/darkmode.js"></script>
+  
+  <script src="/assets/js/simple-jekyll-search.min.js"></script>
+  <script src="/assets/js/search.js"></script>
+  
+</body>
+
+</html>
