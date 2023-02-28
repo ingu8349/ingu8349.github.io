@@ -1,6 +1,114 @@
 [
   
     {
+      "title"    : "HTML 그 두번째",
+      "title-lower"    : "html 그 두번째",
+      "sub-titile" : "",
+      "sub-titile-lower" : "",
+      "categories" : "HTMLinline-block",
+      "tags"     : "",
+      "url"      : "/html/inline-block/2023/02/08/HTML2.html",
+      "date"     : "2023-02-08 18:35:03 +0900",
+      "content"     : "HTML inline-block, block 에 대해저번 시간에 오랜만에 float을 썼는데 현직에서 보니 float을 쓴 기억이 한 번도 없다.이번엔 inline-block을 통해 가로로 세울 수 있는 방법을 되짚어본다.사실 flex를 보통 써서 쉽게 하고있는데, 리마인드 정도로 글을 남긴다.inline-block은 자기 크기만큼 자리를 차지한다. ..."
+    } ,
+  
+    {
+      "title"    : "JAVASCRIPT의 시작",
+      "title-lower"    : "javascript의 시작",
+      "sub-titile" : "",
+      "sub-titile-lower" : "",
+      "categories" : "Javascript",
+      "tags"     : "",
+      "url"      : "/javascript/2023/02/05/javascript.html",
+      "date"     : "2023-02-05 18:35:03 +0900",
+      "content"     : "Javascript의 시작html의 기초는 있으니 바로 시작,&amp;lt;h1&amp;gt; //태그가 있다고 가정해봤을 때&amp;lt;h1 id=&quot;hello&quot;&amp;gt;안녕하세요&amp;lt;h1&amp;gt;//의 innerHTML을 바꾸는 방법은 script안에 document.getElementById(&quot;hel..."
+    } ,
+  
+    {
+      "title"    : "HTTP Protocol",
+      "title-lower"    : "http protocol",
+      "sub-titile" : "",
+      "sub-titile-lower" : "",
+      "categories" : "HTTPHTTPProtocolHTTP프로토콜",
+      "tags"     : "",
+      "url"      : "/http/httpprotocol/http%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C/2023/02/04/http.html",
+      "date"     : "2023-02-04 18:35:03 +0900",
+      "content"     : "HTTP 프로토콜에 대해 알아보다.흔히 인터넷창에 쓰는 url을 통해 많이 봐왔던 http 관련 정보들을 정리해보려한다.캡틴판교님의 블로그 게시글을 보며 공부했다. 출처 https://joshua1988.github.io/web-development/http-part1/HTTP(Hypertext Transfer Protocol)는 웹을 개발하는 사람이..."
+    } ,
+  
+    {
+      "title"    : "HTML 시작 그리고 CSS",
+      "title-lower"    : "html 시작 그리고 css",
+      "sub-titile" : "",
+      "sub-titile-lower" : "",
+      "categories" : "HTMLMARKUP언어CSS",
+      "tags"     : "",
+      "url"      : "/html/markup%EC%96%B8%EC%96%B4/css/2023/01/31/csr-ssr.html",
+      "date"     : "2023-01-31 22:20:03 +0900",
+      "content"     : "HTML 알지만, 정확히 알지는 않았던 것 이제 시작.서막의 알림이다.이제 이거부터 시작해서 완전한 초 보 프론트엔드가 되기위해 대단원의 시작을 알린다.일단 HTML하이퍼 텍스트 마크업 렝기쥐 라는 건 예전에 배워서 알고있었는데, HTML이 뭐야? 라고 그냥 누가 질문을 던진다면 흠…이럴거같은데쉽게 얘기해서 웹페이지 만들때 html쓰고, 자료들이 어떻..."
+    } ,
+  
+    {
+      "title"    : "CSR SSR",
+      "title-lower"    : "csr ssr",
+      "sub-titile" : "",
+      "sub-titile-lower" : "",
+      "categories" : "CSRSSR",
+      "tags"     : "",
+      "url"      : "/csr/ssr/2023/01/25/html.html",
+      "date"     : "2023-01-25 22:40:03 +0900",
+      "content"     : "한번도 안들어보진 않았지만, 명확히 몰랐던 CSR, SSR오늘은 이것에 대해 오랜만에 포스팅을 하려고한다.CSR보다 먼저 SSR은 내가 처음에 알고있는 얕은 지식으로는 페이지가 렌더링 되기 맨~처음에딱 한번 데이터를 불러온다? 정도의 개념으로 알고 있었는데, 이번 계기를 통해서 제대로 알아보려한다.먼저… 맨날쓰는 렌더링이란 단어의 뜻부터 명확히 알고가..."
+    } ,
+  
+    {
+      "title"    : "정규표현식 regex",
+      "title-lower"    : "정규표현식 regex",
+      "sub-titile" : "",
+      "sub-titile-lower" : "",
+      "categories" : "정규표현식regexregularExpression",
+      "tags"     : "",
+      "url"      : "/%EC%A0%95%EA%B7%9C%ED%91%9C%ED%98%84%EC%8B%9D/regex/regularexpression/2023/01/18/regular-expression.html",
+      "date"     : "2023-01-18 22:00:03 +0900",
+      "content"     : "정규표현식 aka regex에 대해 알아보자.코드작성을 할 때 간혹 보였었던 regex는 정규표현식의 줄임말이다.보통 이전에 form 안에서 이메일? 전화번호 같은 간단한거의 validate를 할 떄 잠깐 발을 담궜던 기억이 있는데,이제 이것에 대해 한번 제대로 알아보려 한다.  기본적으로 / / slash 안에 우리가 기본적으로 찾으려는 patter..."
+    } ,
+  
+    {
+      "title"    : "state와 lifecycle",
+      "title-lower"    : "state와 lifecycle",
+      "sub-titile" : "",
+      "sub-titile-lower" : "",
+      "categories" : "reactstatelifecycle",
+      "tags"     : "",
+      "url"      : "/react/state/lifecycle/2023/01/18/state-lifecycle.html",
+      "date"     : "2023-01-18 22:00:03 +0900",
+      "content"     : "react 공식 문서를 보며 state lifecycle를 이해하다.공식문서를 보면 참 깔끔하게 나와있네 생각이 들면서도 말들이 참 어렵다는 생각이 든다.그래도 저번에 실제 업무에서 lifeCycle의 중요함을 듣고나서 한 번 정리를 해두면 좋겠다는 생각이 들어 한 개의 주제로 삼기로 했다.state 리엑트에서 component의 변경 가능한 데이터를..."
+    } ,
+  
+    {
+      "title"    : "동기 / 비동기의 늪",
+      "title-lower"    : "동기 / 비동기의 늪",
+      "sub-titile" : "",
+      "sub-titile-lower" : "",
+      "categories" : "javascript동기비동기promiseasyncawait",
+      "tags"     : "",
+      "url"      : "/javascript/%EB%8F%99%EA%B8%B0/%EB%B9%84%EB%8F%99%EA%B8%B0/promise/async/await/2023/01/15/%EB%8F%99%EA%B8%B0%EB%B9%84%EB%8F%99%EA%B8%B0.html",
+      "date"     : "2023-01-15 22:00:03 +0900",
+      "content"     : "동기 / 비동기 알기왜 나만 이해를 못하는 것 같지싶을정도로 수많은 유튜브 강의와 글들이 있었는데 좀 기준이 잡히는 것 같아서 글을 남긴다.사실 동기 / 비동기가 뭔지는 바로 이해를 했었었다.동기 : 순차적으로 앞에 것 끝날 때까지 기다렸다 다음거 실행한다. 이렇다그래서 설계하기 쉽고 순차적으로 진행하는데, 앞에꺼 끝나고 그래야 다음 라운드를 진행하기..."
+    } ,
+  
+    {
+      "title"    : "some과 every",
+      "title-lower"    : "some과 every",
+      "sub-titile" : "",
+      "sub-titile-lower" : "",
+      "categories" : "javascriptsomeevery",
+      "tags"     : "",
+      "url"      : "/javascript/some/every/2023/01/15/some%EA%B3%BC-every.html",
+      "date"     : "2023-01-15 22:00:03 +0900",
+      "content"     : "some과 every에 대해 알아보자굉장히 생소했지만, 오늘 일하는 도중 보게 된 some 때문에 궁금증이 생겨서 찾아봤고,이렇게 기록해두면 또 써먹을 일이 있을 것같아 포스팅한다. 내용이 길지는 않을 것 같다.참고로 둘다 배열에서 쓴다. 알아두자먼저every함수  every()는 배열의 각 엘리먼트에 대해서 테스트 함수의 반환 값이 모두 true인지..."
+    } ,
+  
+    {
       "title"    : "useReducer에 대해 알아보자",
       "title-lower"    : "usereducer에 대해 알아보자",
       "sub-titile" : "",

@@ -1,0 +1,63 @@
+---
+layout: post
+title:  "HTML 그 세번째"
+date:   2023-02-28 18:35:03 +0900
+categories: HTML 
+---
+
+HTML 정리 그 세번째
+
+함수안에서 쓸 수 있는 return 문법
+return을 예전부터 자연스럽게 써왔지만, 다시 한 번 강의를 통해 정리한다.
+
+* 함수() 실행하고 나서 그 자리에 뭔가 결과를 남기고 싶으면 return 문법 쓰면 된다.
+```javascript
+function 함수(){
+  return 123
+}
+
+console.log(함수());
+```
+* return 문법은 함수종료의 뜻도 가지고 있다.
+```javascript
+function 함수(){
+  console.log('안녕');
+  return 123
+  console.log('반가워');
+}
+
+함수();
+```
+
+### 자료를 집어넣으면 규칙에 따라 다른 자료가 나오는 변환기 역할
+
+## 두번째 스크롤 이벤트 리스터
+```javascript
+window.addEventListener('scroll', function(){
+  console.log('안녕')
+});
+```
+* window는 그냥 전체 페이지를 의미
+* document도 전체 페이지입니다. window가 약간 더 큰 개념인데 scroll 이벤트리스너는 관습적으로 window에 붙임 
+
+* window.scrollY 사용하면 현재 페이지를 얼마나 위에서 부터 스크롤했는지 px 단위로 알려준다.
+* window.scrollX 는 가로로 얼마나 스크롤했는지 알려준다.
+* window.scrollTo(x, y) 실행하면 강제로 스크롤바를 움직일 수 있다.
+
+스크롤 최하단까지 내리고 alert 띄울 때 신경써야하는 것
+
+var 스크롤양 = document.querySelector('.lorem').scrollTop;
+var 실제높이 = document.querySelector('.lorem').scrollHeight;
+var 높이 = document.querySelector('.lorem').clientHeight;
+if (스크롤양 + 높이 > 실제높이 - 10) {
+alert('다읽음')
+}
+
+그리고 
+```javascript
+document.querySelector('html').scrollTop;  //현재 웹페이지 스크롤양
+document.querySelector('html').scrollHeight; //현재 웹페이지 실제높이
+document.querySelector('html').clientHeight; //현재 웹페이지 보이는 높이임
+```
+
+스크롤을 오랜만에 다뤄서 굉장히 유익했던, 정보였다.
