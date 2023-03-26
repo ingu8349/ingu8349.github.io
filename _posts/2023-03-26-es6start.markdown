@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Javascript es6 start"
-date:   2023-03-19 18:35:03 +0900
+date:   2023-03-25 18:35:03 +0900
 categories: Javascript es6 
 ---
 
@@ -53,4 +53,4 @@ object1.func() //를 실행하면,
 
 ### 메소드안에서 this를 쓰시면 this는 메소드를 가지고 있는 오브젝트를 뜻한다.
 
-일단 크게 이렇게 알고 다음으로 넘어간다!
+일단 크게 이렇게 알고 다음으로 넘어간다! this는 끝나지 않았다 아직
