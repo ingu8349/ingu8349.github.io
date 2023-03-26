@@ -1,0 +1,56 @@
+---
+layout: post
+title:  "Javascript es6 start"
+date:   2023-03-19 18:35:03 +0900
+categories: Javascript es6 
+---
+
+Javascript es6의 시작 this
+
+this에 대해 알아보려 한다.. 꽤나 자주 봤던 모습의 this인데 이번참에 제대로 정리해서 편하게 써보도록 하겠다.
+
+## 1. this의 첫번째 뜻은 Window다.
+```javascript
+console.log(this)
+```
+라고 하고 실행시키면, this는 window객채의 정보가 슈루룩 찍히는 걸 볼 수 있다.
+####   ^^ window는 모든 전역변수, 함수, DOM을 보관하고 관리하는 전역객체
+비슷하게 일반 함수 내에서 this라는 값을 불러보면
+```javascript
+function a(){
+  console.log(this)
+}
+a();
+```
+똑같이 this라는 값은 window 라고 출력된다. 
+### this의 첫째 뜻. 그냥 window
+
+## 2. object 자료형 내에 함수들이 있을 수 있는데 거기서 this값은 '주인`을 뜻한다.
+
+```javascript
+var object1 = {
+  data : 'Kim',
+  func : function(){ console.log('abc') } 
+}
+
+object1.func() //를 실행하면, 
+// console에 'abc'가 찍힐 것이다.
+```
+
+그 런 데 여기서 'abc'대신 this를 넣으면
+
+```javascript
+var object1 = {
+  data : 'Kim',
+  func : function(){ console.log(this) } 
+}
+
+object1.func() //를 실행하면,
+
+// 바로 
+{ data : 'Kim', func : f } //가 찍힐것이다.
+```
+
+### 메소드안에서 this를 쓰시면 this는 메소드를 가지고 있는 오브젝트를 뜻한다.
+
+일단 크게 이렇게 알고 다음으로 넘어간다!
