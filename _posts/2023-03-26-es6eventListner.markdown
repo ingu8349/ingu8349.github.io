@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Javascript es6 arrow-function event listener constructor"
-date:   2023-03-26 18:35:03 +0900
+date:   2023-04-01 18:35:03 +0900
 categories: Javascript es6  event listener와 constructor arrow-function 
 ---
 
