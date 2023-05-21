@@ -2,7 +2,7 @@
 layout: post
 title:  "자바스크립트 자료형"
 date:   2023-05-21 14:05:03 +0900
-categories: 웹소켓 web socket 
+categories: 자료형 자바스크립트 map set 
 ---
 
 자바스크립트 자료형 정리를 해보려고 한다.
