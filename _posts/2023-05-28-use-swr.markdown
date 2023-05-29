@@ -1,0 +1,37 @@
+---
+layout: post
+title:  "use SWR"
+date:   2023-05-28 14:05:03 +0900
+categories: useSWR 
+---
+
+데이터 가져오기를 위한 React Hooks 중 use SWR에 대해 알아본다.
+
+## "SWR"이라는 이름은 HTTP RFC 5861(opens in a new tab)에 의해 알려진 HTTP 캐시 무효 전략인 stale-while-revalidate에서 유래되었다.
+- 저 캐시(스태일)로부터 데이터를 반환한 후, fetch 요청(재검증)을 하고, 최종적으로 최신화된 데이터를 가져오는 전략
+
+### SWR을 사용하면 컴포넌트는 지속적이며 자동으로 데이터 업데이트 스트림을 받게된다.
+
+* 일단 최신 데이터가 아니더라도 캐싱된 데이터를 먼저 사용자에게 보여준다.
+그리고 그 사이에 서버를 한 번 찔러서 재검증을 한다.
+만약 받아온 데이터가 캐싱된 데이터와 다를 경우, 리렌더링을 통해 새로운 데이터를 사용자에게 보여준다.
+
+
+### useSWR이라는 hook이 핵심이며 반환값으로 { data, error, isValidating, mutate }를 받을 수 있다.
+```javascript
+import useSWR from 'swr'
+// 을 이용해 임포트한다.
+
+const { data, error, isValidating, mutate } = useSWR(key, fetcher, options);
+```
+
+아직 데이터를 로딩중일 때는 data가 undefined이고, 데이터를 가져오면 해당 데이터가 반환된다.
+error는 undefined이다가 에러가 발생하는 경우에만 해당 에러를 반환한다.
+isValidating은 revalidate 중인지 여부를 나타내는 boolean 값이다.
+mutate는 인위적으로 revalidate를 시킬 때 사용한다.
+
+
+
+
+
+출처 https://swr.vercel.app/ko, https://iborymagic.tistory.com/135
