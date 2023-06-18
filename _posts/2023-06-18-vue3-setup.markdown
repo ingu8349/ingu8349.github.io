@@ -1,0 +1,125 @@
+---
+layout: post
+title:  "Vue3에서의 setup"
+date:   2023-06-18 14:05:03 +0900
+categories: Vue3 setup
+---
+
+Vue3를 하면서 보게된 setup이라는 것에 대해 알아보자
+
+## Vue는 스크립트, 마크업, 스타일시트를 한 파일 안에서 작성할 수 있는 SFC(Single File Component) 문법이다.
+리엑트에 익숙했던 나인데, 이부분은 좀 낯설기도 신박하기도 하였다.
+ - template 태그 안은 마크업이며 script 안에서 선언한 변수를 사용할 수 있다. 마크업 안에서는 style 태그 안에서 작성한 스타일시트도 사용할 수 있다.
+
+```javascript
+<template>
+  <div class="example">{{ msg }}</div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      msg: 'Hello world!'
+    }
+  }
+}
+</script>
+
+<style>
+.example {
+  color: blue;
+}
+</style>
+```
+위의 모습이 가장기본적인 Vue의 모습이엇다.
+
+Vue는 props 정의(props), 상태 변수(data), 메소드(methods), 라이프사이클(mounted, updated, beforeUnmount, …), 계산된 값(computed), 특정 값의 업데이트 탐지(watch) 등의 기능을 객체의 속성과 메소드를 사용해서 선언한다.
+라이프 사이클 같은 경우는 react에서 해왔던거랑 다르기 때문에 좀 더 볼 필요가 있을것 같다.
+
+## 이제 바로 오늘의 주인공 setup
+프로젝트를 진행하면서.. 제일 낯설고 어느때는 빠져있거나? 넣어져있으면 에러가 발생하기도 하는 것 같앗던 setup
+
+Vue 3에서는 컴포넌트 객체에 setup 함수를 사용할 수 있다.
+가장 키 포인트! setup을 통하면
+### ref 를 사용해서 반응형 변수로 data를, 보통의 자바스크립트 함수로 methods를 대체한다. 라이프사이클 메소드는 onMounted, onUpdated 같은 라이프사이클 훅 함수가 대신한다.
+
+예시 
+```javascript
+<script>
+import { ref, onMounted } from 'vue'
+
+export default {
+  props: {
+    name: String
+  },
+  setup(props) {
+    const isSubmited = ref(false);
+    const onSubmit = () => {
+      isSubmited.value = true;
+    }
+
+    onMouted(() => console.log('component mounted'));
+
+    // template에 전달한다.
+    return { 
+      isSubmited,
+      onSubmit
+    }
+  }
+}
+</script>
+<template>
+  <div>{{ name }} {{ isSubmited ? 'submited' : 'not yet' }}</div>
+  <button @click="onSubmit">Submit</button>
+</template>
+```
+- setup 함수는 컴포넌트 인스턴스가 생성되기 전에 실행된다. 즉 컴포넌트 인스턴스에 접근이 필요한 기능은 사용할 수 없다. 
+- setup 안에서 this를 통해 컴포넌트 객체의 data, computed, methods 에서 선언한 것들에는 접근이 불가능하다.
+- 인스턴스가 생성된 직후에 호출되는 created 메소드에 매칭되는 라이프 사이클 훅도 존재하지 않는다.
+
+여기까지가 약간 기본? 적인 느낌이고 내가 헷갈렷던 
+
+## script setup 문법
+
+- Vue에서는 template 안에서 사용할 외부 컴포넌트는 모듈 import 후에 컴포넌트의 components 속성에 추가해야 하고 import만으로 끝나지 않는 상용구(boilerplate) 코드가 별도로 필요하며, 앱의 사이즈가 커짐에 따라 반복 작업이 늘어나게 되는데,
+- 이러한 문제를 보완해줄수 있는것이 바로 script setup 문법이다.
+
+```javascript
+<script setup>
+// 변수 선언
+const msg = 'Hello!'
+
+// 함수 선언
+function log() {
+  console.log(msg)
+}
+</script>
+
+<template>
+  <!-- 템플릿 안에서 바로 사용 가능 -->
+  <div @click="log">{{ msg }}</div>
+</template>
+```
+
+위쪽의 예시는 앞서 써놓은 템플릿에 비해 굉장히 코드가 준것을 볼 수 있다.
+- return을 통해서 template에 명시적으로 전달하는 과정이 생략되었다. 
+- 컴포넌트 모듈도 import만 해주면 template 안에서 사용할 수 있다.
+- 컴포넌트 객체로 props를 선언하기 위해서는 Javascript의 Primitive 데이터의 생성자 함수(ex. String, Object, Function)와 PropType을 조합해야 했지만, script setup 안에서는 defineProps에 제네릭과 타입스크립트의 타입을 그대로 사용하면 된다.
+
+예시
+```javascript
+const props = defineProps<{
+  foo: string;
+  bar?: {
+		data: number;
+    isSetup: boolean;
+	}
+}>()
+```
+
+리엑트가..어렵지만 물론 적응이 된 부분이있어 사용하는데 편리함은 있엇지만,,, Vue도 파보다 보면 적응될거라 믿는다.
+
+출처
+https://blog.rhostem.com/posts/2021-09-17-vue-3-script-setup
+감사합니다.
